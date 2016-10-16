@@ -1,3 +1,17 @@
 <template name="Home">
-	<h1>Hello World!</h1>
+	{{#if Template.subscriptionsReady}}
+		{{#if isInRole 'coordinator'}}
+			{{ coordinatorHome }}
+		{{/if}}
+		{{#if isInRole 'instructor'}}
+			{{ instructorHome }}
+		{{/if}}
+		{{#if hasProfile}}
+			{{>SuccessRegister}}
+		{{else}}
+			{{>NotRegistered}}
+		{{/if}}
+	{{else}}
+		<p>Cargando..</p>
+	{{/if}}
 </template>

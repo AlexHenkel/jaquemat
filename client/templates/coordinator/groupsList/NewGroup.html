@@ -1,0 +1,7 @@
+<template name="NewGroup">
+	<h3>Nuevo Grupo</h3>
+    <div class="new-group-container new-quickform">
+       	<i class="fa fa-close"></i>
+        {{> quickForm collection="Groups" id="insertGroupForm" type="insert" omitFields="instructors,students"}}
+    </div>
+</template>

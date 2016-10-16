@@ -1,0 +1,14 @@
+<template name="GetMessages">
+	{{#each messages}}
+		<div class="message-container">
+			<p>{{sender_name}}:</p>
+			<p>{{body}}</p>
+			{{#if isInRole 'coordinator'}}
+				<i class="fa fa-trash"></i>
+			{{/if}}
+			<span>{{humanDate created_at}}</span>
+		</div>
+	{{else}}
+		<p>Aún no hay mensajes.</p>
+	{{/each}}
+</template>

@@ -1,0 +1,23 @@
+<template name="Periods">
+    {{#if isInRole 'coordinator'}}
+        <h2>Periodos</h2>
+        {{#if $.Session.get 'newPeriod'}}
+            {{> NewPeriod}}
+        {{else}}
+            <button class="new-period">Agregar Periodo</button>
+        {{/if}}
+        <section class="periods">
+            {{#if Template.subscriptionsReady}}
+                {{#each periods}}
+                    {{> Period}}
+                {{else}}
+                    <p>Aun no hay periodos.</p>
+                {{/each}}
+            {{else}}
+                <p>Cargando..</p>
+            {{/if}}
+        </section>
+    {{else}}
+        <h1>Prohibido</h1>
+    {{/if}}
+</template>

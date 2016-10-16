@@ -25,6 +25,7 @@ kadira:blaze-layout				# Router helper for blaze
 twbs:bootstrap 					# Bootstrap framework
 seba:minifiers-autoprefixer		# SASS minifier
 fourseven:scss					# SASS support
+stylus
 
 # COLLECTIONS PACKAGES
 aldeed:collection2            	# create schemas from collections
@@ -34,16 +35,18 @@ matb33:collection-hooks       	# hooks for before or after touching db
 # ACCOUNTS PACKAGES
 accounts-base                 	# create users
 accounts-password             	# create users with password
-accounts-ui        				# add login buttons
+useraccounts:unstyled           # custom login buttons
 alanning:roles                	# add roles to users
+accounts-facebook
+service-configuration
 
 # TEMPLATE PACKAGES
 aldeed:template-extension     	# boost templates functions 
 raix:handlebar-helpers			# access different variables from template
 
 # IMAGES PACKAGES
-cfs:standard-packages         	# adds feature to store images in db
-cfs:gridfs 		
+# cfs:standard-packages         	# adds feature to store images in db
+# cfs:gridfs 		
 
 # EMAIL PACKAGES
 email						  	# adds sending email function
@@ -55,7 +58,6 @@ meteortoys:allthings          	# inspect collections in development mode with 'c
 
 # OPTIONAL
 less							# LESS support
-useraccounts:unstyled         	# custom login buttons
 zimme:active-route				# check for active route in template
 fortawesome:fontawesome			# Fontawesome icon library
 vazco:universe-selectize		# autocomplete select

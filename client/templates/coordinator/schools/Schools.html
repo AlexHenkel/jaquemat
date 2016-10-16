@@ -1,0 +1,23 @@
+<template name="Schools">
+    {{#if isInRole 'coordinator'}}
+        <h2>Escuelas</h2>
+        {{#if $.Session.get 'newSchool'}}
+            {{> NewSchool}}
+        {{else}}
+            <button class="new-period">Agregar Escuela</button>
+        {{/if}}
+        <section class="periods">
+            {{#if Template.subscriptionsReady}}
+                {{#each schools}}
+                    {{> School}}
+                {{else}}
+                    <p>Aun no hay escuelas.</p>
+                {{/each}}
+            {{else}}
+                <p>Cargando..</p>
+            {{/if}}
+        </section>
+    {{else}}
+        <h1>Prohibido</h1>
+    {{/if}}
+</template>

@@ -1,0 +1,23 @@
+<template name="Groups">
+    {{#if isInRole 'coordinator'}}
+        <h2>Groupos</h2>
+        {{#if $.Session.get 'newGroup'}}
+            {{> NewGroup}}
+        {{else}}
+            <button class="new-group">Agregar Grupo</button>
+        {{/if}}
+        <section class="groups">
+            {{#if Template.subscriptionsReady}}
+                {{#each groups}}
+                    {{> Group}}
+                {{else}}
+                    <p>Aun no hay grupos.</p>
+                {{/each}}
+            {{else}}
+                <p>Cargando..</p>
+            {{/if}}
+        </section>
+    {{else}}
+        <h1>Prohibido</h1>
+    {{/if}}
+</template>

@@ -1,0 +1,14 @@
+<template name="SingleForum">
+	{{#if Template.subscriptionsReady}}
+		{{#if userInForum }}
+			<h1>{{forum.name}}</h1>
+			<p>En este foro participa: {{#each forum.groups}} {{groupName this}} {{/each}}</p>
+			{{>SendMessage}}
+			{{>GetMessages}}
+		{{else}}
+			<h1>Prohibido</h1>
+		{{/if}}
+	{{else}}
+		<p>Cargando..</p>
+	{{/if}}
+</template>

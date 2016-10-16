@@ -1,0 +1,51 @@
+<template name="Users">
+	{{#if isInRole 'coordinator'}}
+		<h2 class="c-orange">Lista de Usuarios</h2>
+		{{#if Template.subscriptionsReady}}
+			<table>
+				<thead>
+					<tr>
+						<th>Perfil</th>
+						<th>Nombre</th>
+						<th>Email</th>
+						<th>Tipo</th>
+						<th></th>
+						<th>Activar/Desactivar</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each users}}
+						{{#if hasProfile}}
+							<tr>
+								<td>
+									<a href="/usuario/{{_id}}"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+								</td>
+								<td>{{services.facebook.name}}</td>
+								<td>{{services.facebook.email}}</td>
+								<td>{{prettyStatus extendedProfile.type}}</td>
+								<td>
+									{{#if isActive }}
+										<i class="active-status"></i>
+									{{else}}
+										<i class="not-active-status"></i>
+									{{/if}}
+								</td>
+								<td>
+									{{#if isActive }}
+										<button class="toggle-user btn btn-reject">Deactivate</button>
+									{{else}}
+										<button class="toggle-user btn btn-approve">Activate</button>
+									{{/if}}
+								</td>
+								<td><i class="fa fa-trash"></i></td>
+							</tr>
+						{{/if}}
+					{{/each}}
+				</tbody>
+			</table>
+		{{/if}}
+	{{else}}
+        <h1>Prohibido</h1>
+    {{/if}}
+</template>
