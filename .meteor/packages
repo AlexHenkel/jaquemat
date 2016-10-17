@@ -25,7 +25,7 @@ kadira:blaze-layout				# Router helper for blaze
 seba:minifiers-autoprefixer		# SASS minifier
 fourseven:scss					# SASS support
 stylus
-materialize:materialize@=0.97.6
+materialize:materialize
 
 # COLLECTIONS PACKAGES
 aldeed:collection2            	# create schemas from collections
