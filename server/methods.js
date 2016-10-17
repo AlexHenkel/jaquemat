@@ -64,6 +64,8 @@ Meteor.methods({
 
 	// Deletes group
 	registerUser: function(profile) {
+		let user = Meteor.users.findOne(this.userId);
+		profile.profile_picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
 		Meteor.users.update({_id: this.userId}, { $set: { extendedProfile : profile}});
 	},
 
