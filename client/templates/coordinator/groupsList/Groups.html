@@ -1,10 +1,10 @@
 <template name="Groups">
     {{#if isInRole 'coordinator'}}
-        <h2>Groupos</h2>
+        <h2 class="title green-text text-darken-2">Groupos</h2>
         {{#if $.Session.get 'newGroup'}}
             {{> NewGroup}}
         {{else}}
-            <button class="new-group">Agregar Grupo</button>
+            <button class="new-group btn waves-light waves-effect red">Agregar Grupo</button>
         {{/if}}
         <section class="groups">
             {{#if Template.subscriptionsReady}}
