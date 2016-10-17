@@ -6,7 +6,7 @@
         {{else}}
             <button class="new-group btn waves-light waves-effect red">Agregar Grupo</button>
         {{/if}}
-        <section class="groups">
+        <div class="row">
             {{#if Template.subscriptionsReady}}
                 {{#each groups}}
                     {{> Group}}
@@ -14,10 +14,12 @@
                     <p>Aun no hay grupos.</p>
                 {{/each}}
             {{else}}
-                <p>Cargando..</p>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
             {{/if}}
-        </section>
+        </div>
     {{else}}
-        <h1>Prohibido</h1>
+        <h1 class="title green-text text-darken-2">Prohibido</h1>
     {{/if}}
 </template>

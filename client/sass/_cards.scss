@@ -1,0 +1,23 @@
+.edit,
+.delete,
+.close {
+	cursor: pointer;
+}
+
+.list-item {
+	.value {
+
+	}
+	.description {
+		font-style: italic;
+		font-size: 80%;
+	}
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+	color: #f44336;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+	color: #ef9a9a;
+}
