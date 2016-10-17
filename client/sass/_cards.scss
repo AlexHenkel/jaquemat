@@ -27,16 +27,16 @@
 	}
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled) {
 	color: #e53935;
 }
 
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled):hover {
 	color: #388e3c;
 }
 
 .card {
-	.btn-flat:hover {
+	.btn-flat:not(.disabled):hover {
 	    background-color: rgba(67, 128, 1, 0.17);
 	}
 }

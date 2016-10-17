@@ -56,7 +56,8 @@ GroupsSchema = new SimpleSchema({
             },
             multiple: true,
             create: false
-        }
+        },
+        optional: true
     },
     students: {
         type: [String],
@@ -70,7 +71,8 @@ GroupsSchema = new SimpleSchema({
             },
             multiple: true,
             create: false
-        }
+        },
+        optional: true
     },
 });
 
