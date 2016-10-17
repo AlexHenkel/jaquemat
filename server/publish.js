@@ -6,6 +6,10 @@ Meteor.publish('periods', function () {
     return Periods.find();
 });
 
+Meteor.publish('currentPeriods', function () {
+    return Periods.find({status: { $in: ['current', 'pending']}});
+});
+
 ////////////////////////
 ///  Groups
 ////////////////////////

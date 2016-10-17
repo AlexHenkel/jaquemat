@@ -1,0 +1,31 @@
+<template name="ManageGroups">
+    {{#if isInRole 'coordinator'}}
+        <h2 class="title green-text text-darken-2">Grupos actuales</h2>
+        <div class="row m-t-15">
+            {{#if Template.subscriptionsReady}}
+                {{#each periods}}
+                    <div class="col s12 m6">
+                        <ul class="collection with-header">
+                            <li class="collection-header"><h4 class="green-text text-lighten-2">{{name}}</h4></li>
+                            {{#each groupsInPeriod _id}}
+                                {{> ManageGroup}}
+                            {{else}}
+                                <li class="collection-item">Aun no hay grupos :(</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{else}}
+                    <div class="col s12">
+                        <p class="center">Aun no hay grupos :(</p>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+            {{/if}}
+        </div>
+    {{else}}
+        <h1 class="title green-text text-darken-2">Prohibido</h1>
+    {{/if}}
+</template>
