@@ -15,9 +15,15 @@
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
-	color: #f44336;
+	color: #e53935;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):hover {
-	color: #ef9a9a;
+	color: #388e3c;
+}
+
+.card {
+	.btn-flat:hover {
+	    background-color: rgba(67, 128, 1, 0.17);
+	}
 }

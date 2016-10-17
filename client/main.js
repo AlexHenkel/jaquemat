@@ -71,7 +71,10 @@ Template.registerHelper('periodName', (id) => {
 });
 
 Template.registerHelper('groupName', (id) => {
-	return Groups.findOne(id).name; // Get periods
+	let group = Groups.findOne(id);
+	if (group) {
+		return group.name;
+	}
 });
 
 Template.registerHelper('humanDate', (date) => {
