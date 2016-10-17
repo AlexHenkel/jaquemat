@@ -22,10 +22,10 @@ kadira:flow-router				# Router
 kadira:blaze-layout				# Router helper for blaze
 
 # FRONT-END PACKAGES
-twbs:bootstrap 					# Bootstrap framework
 seba:minifiers-autoprefixer		# SASS minifier
 fourseven:scss					# SASS support
 stylus
+materialize:materialize@=0.97.6
 
 # COLLECTIONS PACKAGES
 aldeed:collection2            	# create schemas from collections

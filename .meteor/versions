@@ -61,6 +61,7 @@ livedata@1.0.18
 localstorage@1.0.11
 logging@1.1.15_1
 matb33:collection-hooks@0.8.4
+materialize:materialize@0.97.6
 mdg:validation-error@0.2.0
 meteor@1.2.17_1
 meteor-base@1.0.4
@@ -124,7 +125,6 @@ templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
 tracker@1.1.0
-twbs:bootstrap@3.3.6
 ui@1.0.12
 underscore@1.0.9
 url@1.0.10
