@@ -4,6 +4,19 @@
 	cursor: pointer;
 }
 
+.delete,
+.close {
+	&:hover {
+		color: #c62828 !important;
+	}
+}
+
+.edit {
+	&:hover {
+		color: #1565c0 !important;
+	}
+}
+
 .list-item {
 	.value {
 

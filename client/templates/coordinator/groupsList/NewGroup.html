@@ -1,7 +1,13 @@
 <template name="NewGroup">
-	<h3>Nuevo Grupo</h3>
-    <div class="new-group-container new-quickform">
-       	<i class="fa fa-close"></i>
-        {{> quickForm collection="Groups" id="insertGroupForm" type="insert" omitFields="instructors,students"}}
-    </div>
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title green-text">
+				Nuevo Grupo
+				<i class="material-icons right close red-text text-lighten-2">close</i>
+			</span>
+			<div class="new-group-container new-quickform">
+		        {{> quickForm collection="Groups" id="insertGroupForm" type="insert" omitFields="instructors,students" buttonClasses="btn waves-light waves-effect red" buttonContent="Guardar"}}
+		    </div>
+		</div>
+	</div>
 </template>
