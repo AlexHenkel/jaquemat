@@ -6,7 +6,7 @@
                 {{#each periods}}
                     <div class="col s12 m6">
                         <ul class="collection with-header">
-                            <li class="collection-header"><h4 class="title">{{name}}</h4></li>
+                            <li class="collection-header"><h4 class="title collection-title">{{name}}</h4></li>
                             {{#each groupsInPeriod _id}}
                                 {{> ManageGroup}}
                             {{else}}

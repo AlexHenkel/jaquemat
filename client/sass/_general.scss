@@ -3,6 +3,18 @@
 	color: $title-color;
 }
 
+.collection-title {
+	font-weight: 500;
+	color: $card-title-color;
+}
+
+.go {
+	color: $light-red;
+	&:hover {
+		color: $dark-red;
+	}
+}
+
 .btn-add,
 .btn-submit {
 	background: $accent-color;
