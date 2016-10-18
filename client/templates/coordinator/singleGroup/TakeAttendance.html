@@ -1,0 +1,66 @@
+<template name="TakeAttendance">
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title">
+				Pasar Lista
+				<i class="material-icons right close">close</i>
+			</span> <br>
+			<p class="error-message"></p>
+			<label for="date" class="">Fecha de Hoy</label>
+			<input type="text" id="date" name="date">
+			<h6 class="title">Instructores</h6>
+			<table class="responsive-table bordered" id="instructorsTable">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Presente</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each instructors}}
+						<tr>
+							<td>{{this.extendedProfile.name}}</td>
+							<td>
+								<div class="switch">
+									<label>
+										No
+										<input type="checkbox" id="{{this._id}}">
+										<span class="lever"></span>
+										Si
+									</label>
+								</div>
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<h6 class="title m-t-15">Beneficiarios</h6>
+			<table class="responsive-table bordered" id="studentsTable">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Presente</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each students}}
+						<tr>
+							<td>{{this.extendedProfile.name}}</td>
+							<td>
+								<div class="switch">
+									<label>
+										No
+										<input type="checkbox" id="{{this._id}}">
+										<span class="lever"></span>
+										Si
+									</label>
+								</div>
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<button type="submit" class="btn-submit btn waves-light waves-effect m-t-15">Guardar Asistencia</button>
+		</div>
+	</div>
+</template>

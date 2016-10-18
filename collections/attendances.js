@@ -20,6 +20,9 @@ AttendancesSchema = new SimpleSchema({
        type: String,
        label: "Fecha de inicio",
     },
+    group: {
+        type: String
+    },
     instructors: {
         type: [String],
         label: "Instructores del grupo",

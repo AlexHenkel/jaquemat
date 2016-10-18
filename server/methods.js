@@ -95,4 +95,11 @@ Meteor.methods({
 	deleteUse: function(id) {
 		Meteor.users.remove(id);
 	},
+
+	////////////////////////
+	///  Attendance
+	////////////////////////
+	takeAttendance: function(date, groupId, instructors, students) {
+		Attendances.insert({date: date, group: groupId, instructors: instructors, students: students});
+	}
 });
