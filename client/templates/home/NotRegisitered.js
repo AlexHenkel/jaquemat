@@ -2,17 +2,12 @@ Template.NotRegistered.onCreated(function () {
 	var self = this;
 	self.autorun(function() {
 		self.subscribe('schools'); // Subscribes to schools
+		self.subscribe('selfUser'); // Subscribe to self info
 	});
 	this.userType = new ReactiveVar("student");
 });
 
 Template.NotRegistered.helpers({
-	name: () => {
-		return Meteor.user().services.facebook.name;
-	},
-	email: () => {
-		return Meteor.user().services.facebook.email;
-	},
 	typeMatch: (type) => {
 		return Template.instance().userType.get() === type;
 	},
@@ -27,8 +22,8 @@ Template.NotRegistered.events({
 	},
 	'click #submitRegister': function(event) {
 		event.preventDefault();
-		$(".form-group").each(function() { // Reset form
-			$(this).removeClass('has-error');
+		$("input").each(function() { // Reset form
+			$(this).removeClass('invalid');
 		});
 		$(".error-message").html("");
 
@@ -36,14 +31,14 @@ Template.NotRegistered.events({
 		let missing = false;
 		$("input:not(.js-universeSelectizeInput)").each(function() {
 			if ($(this).val() === "") {
-				$(this).parents('.form-group').addClass('has-error');
+				$(this).addClass('invalid');
 				missing = true;
 			}
 		});
 
 		$("select").each(function() {
 			if (!$(this).val()) {
-				$(this).parents('.form-group').addClass('has-error');
+				// $(this).parents('.form-group').addClass('has-error');
 				missing = true;
 			}
 		});
