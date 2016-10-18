@@ -62,6 +62,14 @@ Meteor.publish('schools', function () {
 });
 
 ////////////////////////
+///  Attendances
+////////////////////////
+
+Meteor.publish('attendancesInGroup', function (group) {
+    return Attendances.find({group: group});
+});
+
+////////////////////////
 ///  Users
 ////////////////////////
 

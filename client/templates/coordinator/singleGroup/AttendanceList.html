@@ -1,0 +1,13 @@
+<template name="AttendanceList">
+	<ul class="collection with-header">
+        <li class="collection-header"><h4 class="title collection-title">Asistencias</h4></li>
+        {{#each attendances }}
+            <li class="collection-item">
+				{{date}}
+				<a href="/lista/{{_id}}" class="secondary-content"><i class="material-icons go">send</i></a>
+		    </li>
+        {{else}}
+            <li class="collection-item">Aun no hay asistencias registradas :(</li>
+        {{/each}}
+    </ul>
+</template>

@@ -24,4 +24,9 @@ table {
 	.not-active-status {
 		background: $red;
 	}
+
+	caption {
+		text-align: left;
+		color: $red;
+	}
 }

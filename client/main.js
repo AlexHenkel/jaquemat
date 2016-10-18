@@ -40,6 +40,10 @@ Template.registerHelper('selfUser', () => {
 
 //////////
 
+Template.registerHelper('attendance', () => {
+	return Attendances.findOne(); // Get group
+});
+
 Template.registerHelper('group', () => {
 	return Groups.findOne(); // Get group
 });
@@ -78,6 +82,10 @@ Template.registerHelper('groupName', (id) => {
 //////////////////////////////////
 ///  ALL ELEMENTS
 /////////////////////////////////
+
+Template.registerHelper('attendances', () => {
+	return Attendances.find(); // Get group
+});
 
 Template.registerHelper('users', () => {
 	return Meteor.users.find(); // Get users
