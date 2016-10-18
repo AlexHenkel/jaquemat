@@ -22,9 +22,6 @@ TestsSchema = new SimpleSchema({
     },
     group: {
         type: String
-    },
-    grades: {
-        type: [String]
     }
 });
 

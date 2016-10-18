@@ -1,6 +1,6 @@
-Grades = new Mongo.Collection('grades');
+Attendances = new Mongo.Collection('attendances');
 
-Grades.allow({
+Attendances.allow({
     insert: function(userId, doc) {
         // just admins and instructors can update
         return Roles.userIsInRole(userId, ['coordinator', 'instructor']);
@@ -15,18 +15,21 @@ Grades.allow({
     }
 });
 
-GradesSchema = new SimpleSchema({
-    student: {
-        type: String
+AttendancesSchema = new SimpleSchema({
+    date: {
+       type: String,
+       label: "Fecha de inicio",
     },
-    test: {
-        type: String
+    instructors: {
+        type: [String],
+        label: "Instructores del grupo",
+        optional: true
     },
-    grade: {
-        type: Number,
-        min: 0,
-        max: 100
-    }
+    students: {
+        type: [String],
+        label: "Alumnos del grupo",
+        optional: true
+    },
 });
 
-Grades.attachSchema(GradesSchema);
+Attendances.attachSchema(AttendancesSchema);
