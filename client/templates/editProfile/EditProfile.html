@@ -1,0 +1,30 @@
+<template name="EditProfile">
+	{{#if Template.subscriptionsReady}}
+		<h2 class="title">Editar Perfil de {{editUser.extendedProfile.name}}</h2>
+		<form class="form-horizontal {{editUser.extendedProfile.type}}" id="registerForm">
+			<div class="row">
+				<p class="col s12 error-message"></p>
+				<div class="input-field col s12">
+					<input type="text" name="name" id="name" value="{{editUser.extendedProfile.name}}">
+					<label for="name" data-error="Tu nombre es requerido" class="active">Nombre</label>
+				</div>
+				<div class="input-field col s12">
+		          	<input id="email" type="email" name="email" value="{{editUser.extendedProfile.email}}">
+		          	<label for="email" data-error="Tu email es requerido" class="active">Email</label>
+		        </div>
+				{{#if $eq editUser.extendedProfile.type 'student'}}
+					{{> StudentEdit}}
+				{{/if}}
+				{{#if $eq editUser.extendedProfile.type 'instructor'}}
+					{{> InstructorEdit}}
+				{{/if}}
+				{{#if $eq editUser.extendedProfile.type 'coordinator'}}
+					{{> CoordinatorEdit}}
+				{{/if}}
+				<div class="input-field col s12">
+					<button type="submit" class="btn waves-light waves-effect btn-submit" id="submitRegister">Enviar Información</button>
+				</div>
+			</div>
+		</form>
+	{{/if}}
+</template>

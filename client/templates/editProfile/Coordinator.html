@@ -1,0 +1,31 @@
+<template name="CoordinatorEdit">
+	<div class="input-field col s12 m6">
+		<input type="text" name="major" id="major" value="{{editUser.extendedProfile.major}}">
+		<label for="major" data-error="Tu carrera es requerida">Carrera</label>
+	</div>
+	<div class="input-field col s12 m6">
+		<input type="text" name="school-id" id="school-id" value="{{editUser.extendedProfile.school_id}}">
+		<label for="school-id" data-error="Tu matrícula es requerida" >Matrícula</label>
+	</div>
+	<div class="input-field col s12 m6">
+		<input type="text" name="semester" id="semester" value="{{editUser.extendedProfile.semester}}">
+		<label for="semester" data-error="Tu semestre es requerida" >Semestre</label>
+	</div>
+	<div class="input-field col s12 m6 m-b-30">
+		<p class="m-0">¿De qué materia te gustaría ser coordinador?</p>
+		<div class="radio">
+			<div class="radio-container">
+				<input type="radio" name="area" id="mathRadio" value="math">
+				<label for="mathRadio">Matemáticas</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="area" id="physicsRadio" value="physics">
+				<label for="physicsRadio">Física</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="area" id="bothRadio" value="both">
+				<label for="bothRadio">Ambas</label>
+			</div>
+		</div>
+	</div>
+</template>

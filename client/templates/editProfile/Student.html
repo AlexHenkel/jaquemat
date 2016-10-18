@@ -1,0 +1,40 @@
+<template name="StudentEdit">
+	<div class="input-field col s12 m6">
+		<input type="number" name="age" id="age">
+		<label for="age" data-error="Tu edad es requerida" class="active">Edad</label>
+	</div>
+	<div class="input-field col s12 m6">
+		<input type="text" name="curp" id="curp">
+		<label for="curp" data-error="Tu CURP es requerida" class="active">CURP</label>
+	</div>
+	<div class="input-field col s12 m6 m-b-30">
+		<p class="m-0">¿En qué año vas?</p>
+		<div class="radio">
+			<div class="radio-container">
+				<input type="radio" name="school_year" id="firstRadio" value="first">
+				<label for="firstRadio">1ro</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="school_year" id="secondRadio" value="second">
+				<label for="secondRadio">2do</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="school_year" id="thirdRadio" value="third">
+				<label for="thirdRadio">3ro</label>
+			</div>
+		</div>
+	</div>
+	<div class="input-field col s12 m6 m-b-30">
+		<p class="m-0">¿A qué espacio te gustaría entrar?</p>
+		<div class="radio">
+			<div class="radio-container">
+				<input type="radio" name="program" id="olympiadRadio" value="first">
+				<label for="olympiadRadio">Olimpiada</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="program" id="regularizationRadio" value="second">
+				<label for="regularizationRadio">Regularización</label>
+			</div>
+		</div>
+	</div>
+</template>
