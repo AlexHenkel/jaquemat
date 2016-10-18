@@ -1,20 +1,24 @@
 .card {
+	.card-title {
+		color: $card-title-color;
+	}
+
 	.edit,
-	.delete,
 	.close {
 		cursor: pointer;
 	}
 
-	.delete,
 	.close {
+		color: $light-red;
 		&:hover {
-			color: #c62828 !important;
+			color: $dark-red;
 		}
 	}
 
 	.edit {
+		color: $light-blue;
 		&:hover {
-			color: #1565c0 !important;
+			color: $dark-blue;
 		}
 	}
 
@@ -25,15 +29,16 @@
 		.description {
 			font-style: italic;
 			font-size: 80%;
+			color: $description-color;
 		}
 	}
 
 	.card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled) {
-		color: #e53935;
+		color: $red-d-1;
 	}
 
 	.card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled):hover {
-		color: #388e3c;
+		color: $green-d-2;
 	}
 
 	.btn-flat:not(.disabled):hover {

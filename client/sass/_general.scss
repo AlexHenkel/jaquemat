@@ -1,5 +1,11 @@
 .title {
 	font-weight: 300;
+	color: $title-color;
+}
+
+.btn-add,
+.btn-submit {
+	background: $accent-color;
 }
 
 .m-b-30 {
