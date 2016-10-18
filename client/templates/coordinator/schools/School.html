@@ -1,19 +1,25 @@
 <template name="School">
-    <article class="school">
-    	<h3>{{name}}</h3>
-		<i class="fa fa-trash"></i>
-		{{#if editMode}}
-			<i class="fa fa-close"></i>
-		{{else}}
-			<i class="fa fa-pencil"></i>
-		{{/if}}
-		
-		{{#if editMode}}
-			<div class="edit-quickform">
-				{{> quickForm collection="Schools" id=updateSchoolId type="update" doc=this }}
-			</div>
-		{{else}}
-			<p><span>Nombre:</span> {{name}}</p>
-		{{/if}}
-	</article>
+	<div class="col s12 m6">
+    	<div class="card">
+    		<div class="card-content">
+    			<span class="card-title">
+    				{{name}}
+					{{#if editMode}}
+						<i class="material-icons right close">close</i>
+					{{else}}
+						<i class="material-icons right edit">edit</i>
+					{{/if}}
+    			</span>
+				
+				{{#if editMode}}
+					<div class="edit-quickform">
+						{{> quickForm collection="Schools" id=updateSchoolId type="update" doc=this buttonClasses="btn waves-light waves-effect btn-submit" buttonContent="Guardar"}}
+					</div>
+				{{/if}}
+    		</div>
+    		<div class="card-action">
+    			<button class="btn-flat disabled delete">Borrar</button>
+    		</div>
+    	</div>
+	</div>
 </template>

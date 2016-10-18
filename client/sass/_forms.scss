@@ -5,11 +5,11 @@ form {
 	[type="radio"]:checked + label:after,
 	[type="radio"].with-gap:checked + label:before,
 	[type="radio"].with-gap:checked + label:after {
-	  	border: 2px solid $red; 
+	  	border: 2px solid $accent-color; 
 	}
 
 	[type="radio"]:checked + label:after,
 	[type="radio"].with-gap:checked + label:after {
-	  background-color: $red;
+	  background-color: $accent-color;
 	}
 }

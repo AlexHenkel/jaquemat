@@ -1,23 +1,27 @@
 <template name="Schools">
     {{#if isInRole 'coordinator'}}
-        <h2>Escuelas</h2>
+        <h2 class="title">Escuelas</h2>
         {{#if $.Session.get 'newSchool'}}
             {{> NewSchool}}
         {{else}}
-            <button class="new-period">Agregar Escuela</button>
+            <button class="new-school btn-add btn waves-light waves-effect">Agregar Escuela</button>
         {{/if}}
-        <section class="periods">
+        <div class="row m-t-15">
             {{#if Template.subscriptionsReady}}
                 {{#each schools}}
                     {{> School}}
                 {{else}}
-                    <p>Aun no hay escuelas.</p>
+                    <div class="col s12">
+                        <p class="center">Aun no hay escuelas :(</p>
+                    </div>
                 {{/each}}
             {{else}}
-                <p>Cargando..</p>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
             {{/if}}
-        </section>
+        </div>
     {{else}}
-        <h1>Prohibido</h1>
+        <h1 class="title">Prohibido</h1>
     {{/if}}
 </template>

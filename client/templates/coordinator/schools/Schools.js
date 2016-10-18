@@ -6,7 +6,7 @@ Template.Schools.onCreated(function () {
 });
 
 Template.Schools.events({
-	'click .new-period': function(event, template) {
+	'click .new-school': function(event, template) {
 		Session.set('newSchool', 1); // Open form to add forums
 	}
 });

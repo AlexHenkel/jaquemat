@@ -15,9 +15,18 @@
 	}
 }
 
+.disabled {
+	cursor: pointer !important;
+}
+
 .btn-add,
-.btn-submit {
+.btn-submit,
+.btn-approve {
 	background: $accent-color;
+	&:hover,
+	&:focus {
+		background: $light-accent;
+	}
 }
 
 .m-b-30 {
@@ -30,4 +39,8 @@
 
 .m-0 {
 	margin: 0;
+}
+
+.p-relative {
+	position: relative;
 }

@@ -1,0 +1,27 @@
+table {
+	.delete {
+		color: $light-red;
+		cursor: pointer;
+		&:hover {
+			color: $dark-red;
+		}
+	}
+
+	.active-status,
+	.not-active-status {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		border-radius: 50%;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.active-status {
+		background: $green;
+	}
+
+	.not-active-status {
+		background: $red;
+	}
+}

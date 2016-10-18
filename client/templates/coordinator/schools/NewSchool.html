@@ -1,7 +1,13 @@
 <template name="NewSchool">
-	<h3>Nueva Escuela</h3>
-    <div class="new-school-container new-quickform">
-       	<i class="fa fa-close"></i>
-        {{> quickForm collection="School" id="insertSchoolForm" type="insert"}}
-    </div>
+    <div class="card">
+		<div class="card-content">
+			<span class="card-title">
+				Nueva Escuela
+				<i class="material-icons right close">close</i>
+			</span>
+			<div class="new-group-container new-quickform">
+			{{> quickForm collection="Schools" id="insertSchoolForm" type="insert" buttonClasses="btn waves-light waves-effect btn-submit" buttonContent="Guardar"}}
+		    </div>
+		</div>
+	</div>
 </template>
