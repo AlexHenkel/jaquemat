@@ -2,8 +2,15 @@
 	transform: translateX(0px);
 	height: calc(100% - 65px);
     top: 65px;
+    width: 240px
 }
 
 .main-layout {
-	padding-left: 300px; 
+	padding-left: 240px; 
+}
+
+@media only screen and (max-width: 600px) {
+	.main-layout {
+		padding-left: 0; 
+	}
 }
