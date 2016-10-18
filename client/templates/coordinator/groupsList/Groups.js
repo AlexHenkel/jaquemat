@@ -7,7 +7,7 @@ Template.Groups.onCreated(function () {
 });
 
 Template.Groups.events({
-	'click .new-group': function(event, template) {
+	'click .btn-add': function(event, template) {
 		Session.set('newGroup', 1); // Open form to add groups
 	}
 });

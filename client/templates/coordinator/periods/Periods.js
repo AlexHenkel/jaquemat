@@ -6,7 +6,7 @@ Template.Periods.onCreated(function () {
 });
 
 Template.Periods.events({
-	'click .new-period': function(event, template) {
+	'click .btn-add': function(event, template) {
 		Session.set('newPeriod', 1); // Open form to add forums
 	}
 });

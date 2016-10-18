@@ -7,7 +7,7 @@ Template.Forums.onCreated(function () {
 });
 
 Template.Forums.events({
-	'click .new-forum': function(event, template) {
+	'click .btn-add': function(event, template) {
 		Session.set('newForum', 1); // Open form to add forums
 	}
 });
