@@ -1,11 +1,11 @@
 <template name="GroupList">
-	<p>Instructores:</p>
+	<p><b>Instructores:</b></p>
 	<ul>
-		{{#each instructors}}
-			<li>{{this}}</li>
+		{{#each group.instructors}}
+			{{ userName this }}
 		{{/each}}
 	</ul>
-	<table>
+	<table class="responsive-table bordered">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -15,7 +15,7 @@
 		<tbody>
 			{{#each students}}
 				<tr>
-					<td>{{this}}</td>
+					<td>{{userName this}}</td>
 					<td></td>
 				</tr>
 			{{/each}}

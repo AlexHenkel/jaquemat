@@ -24,6 +24,10 @@ Template.registerHelper('prettyStatus', (status) => {
 	return statusList[status];
 });
 
+Template.registerHelper('userName', (id) => {
+	return Meteor.users.findOne(id).extendedProfile.name;
+})
+
 //////////////////////////////////
 ///  SINGLE ELEMENTS
 /////////////////////////////////

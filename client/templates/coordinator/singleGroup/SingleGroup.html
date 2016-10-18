@@ -1,4 +1,26 @@
 <template name="SingleGroup">
-	<h1>Grupo {{group.name}}</h1>
-	{{>GroupList}}
+	<h2 class="title">{{group.name}}</h2>
+
+	{{#if isInRole instructorRole }}
+		{{#if $.Session.get 'editGroup'}}
+	        {{> EditGroup}}
+	    {{else}}
+	        <button class="new-group btn waves-light waves-effect red">Tomar Asistencia</button>
+			<button class="new-group btn waves-light waves-effect blue">Agregar Examen</button>
+			<button class="new-group btn waves-light waves-effect orange edit">Inscribir</button>
+			{{#if Template.subscriptionsReady}}
+				{{> GroupList}}
+			{{else}}
+				<div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+			{{/if}}
+	    {{/if}}
+	{{/if}}
+
+	{{#if isInRole 'principal' }}
+		{{#if belongsToPrincipal}}
+	        {{> GroupList}}
+	    {{/if}}
+	{{/if}}
 </template>
