@@ -1,0 +1,11 @@
+<template name="SidebarBig">
+	<ul class="side-nav big">
+		<li>
+			{{>UserView}}
+		</li>
+		{{>PersonalData}}
+		{{#if isInRole 'coordinator'}}
+			{{> CoordinatorLinks}}
+		{{/if}}
+	</ul>
+</template>

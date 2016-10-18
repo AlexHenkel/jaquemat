@@ -80,10 +80,14 @@ Meteor.publish('approvedUsersData', function () {
 
 Meteor.publish('studentsInGroup', function (id) {
     let userArray = Groups.findOne(id).students;
-    return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    if(userArray) {
+        return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    }
 });
 
 Meteor.publish('instructorsInGroup', function (id) {
     let userArray = Groups.findOne(id).instructors;
-    return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    if (userArray) {
+        return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    }
 });

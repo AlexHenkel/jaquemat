@@ -1,0 +1,25 @@
+<template name="Header">
+	<nav class="green">
+		<div class="nav-wrapper">
+			<div class="row">
+				<div class="col s12">
+					<a href="#!" class="brand-logo">JaqueMat</a>
+					{{#if currentUser}}
+						<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+					{{/if}}
+				</div>
+			</div>
+			{{#if currentUser}}
+				<ul id="slide-out" class="side-nav big">
+					<li>
+						{{>UserView}}
+					</li>
+					{{>PersonalData}}
+					{{#if isInRole 'coordinator'}}
+						{{> CoordinatorLinks}}
+					{{/if}}
+				</ul>
+			{{/if}}
+		</div>
+	</nav>
+</template>
