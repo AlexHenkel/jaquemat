@@ -65,6 +65,11 @@ Meteor.publish('schools', function () {
 ///  Users
 ////////////////////////
 
+Meteor.publish('user', function (id) {
+    return Meteor.users.find({_id: id},
+        {fields: {services: 1, extendedProfile: 1}});
+});
+
 Meteor.publish('selfUser', function () {
     return Meteor.users.find({_id: this.userId},
         {fields: {services: 1, extendedProfile: 1}});
