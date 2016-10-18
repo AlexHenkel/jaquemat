@@ -5,16 +5,25 @@
 		{{#if $.Session.get 'editGroup'}}
 	        {{> EditGroup}}
 	    {{else}}
-	        <button class="new-group btn waves-light waves-effect red">Tomar Asistencia</button>
-			<button class="new-group btn waves-light waves-effect blue">Agregar Examen</button>
-			<button class="new-group btn waves-light waves-effect orange edit">Inscribir</button>
-			{{#if Template.subscriptionsReady}}
-				{{> GroupList}}
-			{{else}}
-				<div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
-			{{/if}}
+	    	{{#if $.Session.get 'takeAttendance'}}
+		    	{{> TakeAttendance}}
+		    {{else}}
+		        <button class="new-group btn waves-light waves-effect red attendance">Pasar Lista</button>
+				<button class="new-group btn waves-light waves-effect blue">Agregar Examen</button>
+				<button class="new-group btn waves-light waves-effect orange edit">Inscribir</button>
+				{{#if Template.subscriptionsReady}}
+					{{> GroupList}}
+					<div class="row m-t-15">
+						<div class="col s12 m12 l6">
+							{{> AttendanceList}}
+						</div>
+					</div>
+				{{else}}
+					<div class="progress">
+	                    <div class="indeterminate"></div>
+	                </div>
+				{{/if}}
+		    {{/if}}
 	    {{/if}}
 	{{/if}}
 
