@@ -1,8 +1,9 @@
 Template.EditGroup.onCreated(function () {
     var self = this;
     self.autorun(function() {
-        self.subscribe('students');
-        self.subscribe('instructors');
+    	let period = Groups.findOne().period;
+        self.subscribe('studentsInPeriod', period);
+        self.subscribe('instructorsInPeriod', period);
     });
 });
 
