@@ -1,22 +1,24 @@
 <template name="GroupList">
-	<p><b>Instructores:</b></p>
+	<h4 class="title">Instructores</h4>
 	<ul>
-		{{#each group.instructors}}
-			{{ userName this }}
+		{{#each instructors}}
+			<p><b>{{this.extendedProfile.name}}</b> - Asistencias: {{countAttendanceInstructors}}</p>
 		{{/each}}
 	</ul>
+	<h4 class="title">Beneficiarios</h4>
 	<table class="responsive-table bordered">
+		<caption><b>A</b> = Asistencias</caption>
 		<thead>
 			<tr>
 				<th>Nombre</th>
-				<th>Asistencias</th>
+				<th>A</th>
 			</tr>
 		</thead>
 		<tbody>
 			{{#each students}}
 				<tr>
-					<td>{{userName this}}</td>
-					<td></td>
+					<td>{{this.extendedProfile.name}}</td>
+					<td>{{countAttendanceStudents}}</td>
 				</tr>
 			{{/each}}
 		</tbody>
