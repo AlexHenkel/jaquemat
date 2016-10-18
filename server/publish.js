@@ -106,4 +106,13 @@ Meteor.publish('instructors', function() {
 });
 
 
+Meteor.publish('studentsInPeriod', function(period) {
+    return Meteor.users.find({ $and: [{roles: "student"}, {"extendedProfile.period": period}]});
+});
+
+Meteor.publish('instructorsInPeriod', function(period) {
+    return Meteor.users.find({ $and: [{roles: "instructor"}, {"extendedProfile.period": period}]});
+});
+
+
 

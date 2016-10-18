@@ -2,6 +2,7 @@ Template.NotRegistered.onCreated(function () {
 	var self = this;
 	self.autorun(function() {
 		self.subscribe('schools'); // Subscribes to schools
+		self.subscribe('periods'); // Subscribes to schools
 		self.subscribe('selfUser'); // Subscribe to self info
 	});
 	this.userType = new ReactiveVar("student");
@@ -13,6 +14,11 @@ Template.NotRegistered.helpers({
 	},
 	currentType: () => {
 		return Template.instance().userType.get();
+	},
+	optionsPeriod: function () {
+		return Periods.find().map(function(period) {
+                return {label: period.name, value: period._id};
+            });
 	}
 });
 

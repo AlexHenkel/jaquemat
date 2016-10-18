@@ -16,7 +16,3 @@ Template.Home.helpers({
 		FlowRouter.go('login');
 	}
 });
-
-Template.Home.events({
-	
-});

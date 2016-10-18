@@ -32,11 +32,6 @@ GroupsSchema = new SimpleSchema({
             }
         }
     },
-    limit: {
-        type: Number,
-        label: "Cupo del grupo",
-        min: 1
-    },
     registered: {
         type: Number,
         defaultValue: 0,

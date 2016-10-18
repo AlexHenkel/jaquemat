@@ -44,6 +44,10 @@
 			{{#if typeMatch 'principal'}}
 				{{> PrincipalForm}}
 			{{/if}}
+			<div class="input-field col s12 m6">
+				<p class="m-0">¿A qué periodo te quieres inscribir?</p>
+				{{> universeSelectize name="period" options=optionsPeriod create=false remove=true }}
+			</div>
 			<div class="input-field col s12">
 				<button type="submit" class="btn waves-light waves-effect btn-submit" id="submitRegister">Enviar Información</button>
 			</div>

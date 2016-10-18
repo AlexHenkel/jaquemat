@@ -1,15 +1,15 @@
 <template name="CoordinatorEdit">
 	<div class="input-field col s12 m6">
 		<input type="text" name="major" id="major" value="{{editUser.extendedProfile.major}}">
-		<label for="major" data-error="Tu carrera es requerida">Carrera</label>
+		<label for="major" data-error="Tu carrera es requerida" class="active">Carrera</label>
 	</div>
 	<div class="input-field col s12 m6">
 		<input type="text" name="school_id" id="school_id" value="{{editUser.extendedProfile.school_id}}">
-		<label for="school_id" data-error="Tu matrícula es requerida" >Matrícula</label>
+		<label for="school_id" data-error="Tu matrícula es requerida" class="active">Matrícula</label>
 	</div>
 	<div class="input-field col s12 m6">
 		<input type="text" name="semester" id="semester" value="{{editUser.extendedProfile.semester}}">
-		<label for="semester" data-error="Tu semestre es requerida" >Semestre</label>
+		<label for="semester" data-error="Tu semestre es requerida" class="active">Semestre</label>
 	</div>
 	<div class="input-field col s12 m6 m-b-30">
 		<p class="m-0">¿De qué materia te gustaría ser coordinador?</p>
