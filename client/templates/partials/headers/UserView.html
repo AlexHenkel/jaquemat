@@ -1,8 +1,10 @@
 <template name="UserView">
-	<div class="userView">
-		<img class="background" src="img/office.jpg">
-		<a href="#!user"><img class="circle" src="{{profile_picture}}"></a>
-		<a href="#!name"><span class="white-text name">{{name}}</span></a>
-		<a href="#!email"><span class="white-text email">{{email}}</span></a>
-	</div>
+	{{#if Template.subscriptionsReady}}
+		<div class="userView">
+			<img class="background" src="/img/office.jpg">
+			<a href="#"><img class="circle" src="{{selfUser.extendedProfile.profile_picture}}"></a>
+			<a href="#"><span class="white-text name">{{selfUser.extendedProfile.name}}</span></a>
+			<a href="#"><span class="white-text email">{{selfUser.extendedProfile.email}}</span></a>
+		</div>
+	{{/if}}
 </template>
