@@ -96,3 +96,14 @@ Meteor.publish('instructorsInGroup', function (id) {
         return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
     }
 });
+
+Meteor.publish('students', function() {
+    return Meteor.users.find({roles: "student"});
+});
+
+Meteor.publish('instructors', function() {
+    return Meteor.users.find({roles: "instructor"});
+});
+
+
+
