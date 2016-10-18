@@ -1,7 +1,13 @@
 <template name="NewForum">
-	<h3>Nuevo Foro</h3>
-    <div class="new-forum-container new-quickform">
-       	<i class="fa fa-close"></i>
-        {{> quickForm collection="Forums" id="insertForumForm" type="insert"}}
-    </div>
+    <div class="card">
+		<div class="card-content">
+			<span class="card-title">
+				Nuevo Foro
+				<i class="material-icons right close">close</i>
+			</span>
+			<div class="new-quickform">
+		        {{> quickForm collection="Forums" id="insertForumForm" type="insert" buttonClasses="btn waves-light waves-effect btn-submit" buttonContent="Guardar"}}
+		    </div>
+		</div>
+	</div>
 </template>

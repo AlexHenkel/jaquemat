@@ -1,23 +1,27 @@
 <template name="Forums">
     {{#if isInRole 'coordinator'}}
-        <h2>Foros</h2>
+        <h2 class="title">Foros</h2>
         {{#if $.Session.get 'newForum'}}
             {{> NewForum}}
         {{else}}
-            <button class="new-forum">Agregar Foro</button>
+            <button class="btn-add btn waves-light waves-effect">Agregar Foro</button>
         {{/if}}
-        <section class="forums">
+        <div class="row m-t-15">
             {{#if Template.subscriptionsReady}}
                 {{#each forums}}
-                        {{> Forum}}
+                    {{> Forum}}
                 {{else}}
-                    <p>Aun no hay foros.</p>
+                    <div class="col s12">
+                        <p class="center">Aun no hay foros :(</p>
+                    </div>
                 {{/each}}
             {{else}}
-                <p>Cargando..</p>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
             {{/if}}
-        </section>
+        </div>
     {{else}}
-        <h1>Prohibido</h1>
+        <h1 class="title">Prohibido</h1>
     {{/if}}
 </template>
