@@ -1,41 +1,41 @@
-.edit,
-.delete,
-.close {
-	cursor: pointer;
-}
-
-.delete,
-.close {
-	&:hover {
-		color: #c62828 !important;
-	}
-}
-
-.edit {
-	&:hover {
-		color: #1565c0 !important;
-	}
-}
-
-.list-item {
-	.value {
-
-	}
-	.description {
-		font-style: italic;
-		font-size: 80%;
-	}
-}
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled) {
-	color: #e53935;
-}
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled):hover {
-	color: #388e3c;
-}
-
 .card {
+	.edit,
+	.delete,
+	.close {
+		cursor: pointer;
+	}
+
+	.delete,
+	.close {
+		&:hover {
+			color: #c62828 !important;
+		}
+	}
+
+	.edit {
+		&:hover {
+			color: #1565c0 !important;
+		}
+	}
+
+	.list-item {
+		.value {
+
+		}
+		.description {
+			font-style: italic;
+			font-size: 80%;
+		}
+	}
+
+	.card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled) {
+		color: #e53935;
+	}
+
+	.card-action a:not(.btn):not(.btn-large):not(.btn-floating):not(.disabled):hover {
+		color: #388e3c;
+	}
+
 	.btn-flat:not(.disabled):hover {
 	    background-color: rgba(67, 128, 1, 0.17);
 	}

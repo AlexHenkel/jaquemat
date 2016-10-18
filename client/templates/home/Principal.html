@@ -1,8 +1,6 @@
 <template name="PrincipalForm">
-	<div class="form-group">
-		<label for="age" class="col-sm-2 control-label">Escuela</label>
-		<div class="col-sm-10">
-			{{> universeSelectize name="school" options=options create=false remove=true }}
-		</div>
+	<div class="input-field col s12">
+		<p class="m-0">Escuela</p>
+		{{> universeSelectize name="school" options=options create=false remove=true }}
 	</div>
 </template>

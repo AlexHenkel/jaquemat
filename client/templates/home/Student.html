@@ -1,48 +1,43 @@
 <template name="StudentForm">
-	<div class="form-group">
-		<label for="age" class="col-sm-2 control-label">Edad</label>
-		<div class="col-sm-10">
-			<input type="number" class="form-control" name="age" placeholder="Edad">
-		</div>
+	<div class="input-field col s12 m6">
+		<input type="number" name="age" id="age">
+		<label for="age" data-error="Tu edad es requerida" >Edad</label>
 	</div>
-	<div class="form-group">
-		<label for="age" class="col-sm-2 control-label">Escuela</label>
-		<div class="col-sm-10">
-			{{> universeSelectize name="school" options=options create=false remove=true }}
-		</div>
+	<div class="input-field col s12 m6">
+		<p class="m-0">Escuela</p>
+		{{> universeSelectize name="school" options=options create=false remove=true }}
 	</div>
-	<div class="form-group">
-		<label for="curp" class="col-sm-2 control-label">CURP</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" name="curp" placeholder="CURP">
-		</div>
+	<div class="input-field col s12 m6">
+		<input type="text" name="curp" id="curp">
+		<label for="curp" data-error="Tu CURP es requerida" >CURP</label>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">¿En qué año vas?</label>
-		<div class="col-sm-10">
-			<div class="radio">
-				<label>
-					<input type="radio" name="school-year" checked value="first"> 1ro
-				</label>
-				<label>
-					<input type="radio" name="school-year" value="second"> 2do
-				</label>
-				<label>
-					<input type="radio" name="school-year" value="third"> 3ro
-				</label>
+	<div class="input-field col s12 m6 m-b-30">
+		<p class="m-0">¿En qué año vas?</p>
+		<div class="radio">
+			<div class="radio-container">
+				<input type="radio" name="school-year" id="firstRadio" value="first" checked>
+				<label for="firstRadio">1ro</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="school-year" id="secondRadio" value="second">
+				<label for="secondRadio">2do</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="school-year" id="thirdRadio" value="third">
+				<label for="thirdRadio">3ro</label>
 			</div>
 		</div>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-2 control-label">¿A qué espacio te gustaría entrar?</label>
-		<div class="col-sm-10">
-			<div class="radio">
-				<label>
-					<input type="radio" name="program" checked value="olympiad"> Olimpiada
-				</label>
-				<label>
-					<input type="radio" name="program" value="regularization"> Regularización
-				</label>
+	<div class="input-field col s12 m6 m-b-30">
+		<p class="m-0">¿A qué espacio te gustaría entrar?</p>
+		<div class="radio">
+			<div class="radio-container">
+				<input type="radio" name="program" id="olympiadRadio" value="first" checked>
+				<label for="olympiadRadio">Olimpiada</label>
+			</div>
+			<div class="radio-container">
+				<input type="radio" name="program" id="regularizationRadio" value="second">
+				<label for="regularizationRadio">Regularización</label>
 			</div>
 		</div>
 	</div>
