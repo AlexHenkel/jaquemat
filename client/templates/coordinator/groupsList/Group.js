@@ -9,6 +9,15 @@ Template.Group.helpers({
 	},
 	editMode: function() {
 		return Template.instance().editMode.get();
+	},
+	studentsRegistered: function() {
+		let group = Groups.findOne(this._id);
+		if (group.students) {
+			return group.students.length;
+		}
+		else {
+			return 0;
+		}	
 	}
 });
 

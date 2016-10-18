@@ -32,13 +32,6 @@ GroupsSchema = new SimpleSchema({
             }
         }
     },
-    registered: {
-        type: Number,
-        defaultValue: 0,
-        autoform: {
-            type: "hidden"
-        }
-    },
     instructors: {
         type: [String],
         label: "Instructores del grupo",
