@@ -1,17 +1,16 @@
 <template name="Users">
 	{{#if isInRole 'coordinator'}}
-		<h2 class="c-orange">Lista de Usuarios</h2>
+		<h2 class="title">Lista de Usuarios</h2>
 		{{#if Template.subscriptionsReady}}
-			<table>
+			<table class="responsive-table bordered">
 				<thead>
 					<tr>
 						<th>Perfil</th>
 						<th>Nombre</th>
 						<th>Email</th>
 						<th>Tipo</th>
-						<th></th>
-						<th>Activar/Desactivar</th>
-						<th></th>
+						<th>Status</th>
+						<th>Borrar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -19,26 +18,20 @@
 						{{#if hasProfile}}
 							<tr>
 								<td>
-									<a href="/usuario/{{_id}}"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+									<a href="/usuario/{{_id}}">IR</a>
 								</td>
 								<td>{{services.facebook.name}}</td>
 								<td>{{services.facebook.email}}</td>
 								<td>{{prettyStatus extendedProfile.type}}</td>
-								<td>
+								<td class="p-relative">
 									{{#if isActive }}
 										<i class="active-status"></i>
+										<button class="toggle-user btn-flat disabled btn-reject">Desactivar</button>
 									{{else}}
-										<i class="not-active-status"></i>
+										<button class="toggle-user btn btn-approve waves-effect waves-light">Activar</button>
 									{{/if}}
 								</td>
-								<td>
-									{{#if isActive }}
-										<button class="toggle-user btn btn-reject">Deactivate</button>
-									{{else}}
-										<button class="toggle-user btn btn-approve">Activate</button>
-									{{/if}}
-								</td>
-								<td><i class="fa fa-trash"></i></td>
+								<td><i class="material-icons delete">delete</i></td>
 							</tr>
 						{{/if}}
 					{{/each}}
