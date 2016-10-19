@@ -132,5 +132,9 @@ Meteor.methods({
 
 	updateAttendance: function(attendanceId, date, instructors, students) {
 		Attendances.update({_id: attendanceId}, {$set: {date: date, instructors: instructors, students: students}});
-	}
+	},
+
+	deleteAttendance: function(id) {
+		Attendances.remove(id);
+	},
 });

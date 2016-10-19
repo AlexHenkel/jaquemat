@@ -4,6 +4,7 @@
         {{#each attendances }}
             <li class="collection-item">
 				{{date}}
+                <a href="#" class="secondary-content"><i class="material-icons delete disabled" data-id="{{_id}}">delete</i></a>
 				<a href="/lista/{{_id}}" class="secondary-content"><i class="material-icons go">send</i></a>
 		    </li>
         {{else}}
