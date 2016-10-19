@@ -70,7 +70,7 @@ Meteor.publish('currentForums', function () {
     let periodsArr = Periods.find({status: { $in: ['current', 'pending']}}).map(function (period) {
         return period._id;
     });
-    return Periods.find({period: {$in: periodsArr}});
+    return Forums.find({period: {$in: periodsArr}});
 });
 
 ////////////////////////
