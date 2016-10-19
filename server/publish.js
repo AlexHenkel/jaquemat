@@ -1,3 +1,4 @@
+var _ = require('lodash');
 ////////////////////////
 ///  Periods
 ////////////////////////
@@ -168,6 +169,26 @@ Meteor.publish('studentsInGroupOfTest', function(testId) {
     let groupId = Tests.findOne(testId).group;
     let studentsArr = Groups.findOne(groupId).students; 
     return Meteor.users.find({ _id: {$in: studentsArr }});
+});
+
+Meteor.publish('usersInForum', function (forumId) {
+    let users = [];
+    // Add all coordinators
+    Meteor.users.find({roles: "coordinator"}).map(function (user) {
+        users.push(user._id);
+    });
+    // Add instructors in forum
+    let groups = Forums.findOne(forumId).groups;
+    Groups.find({_id: { $in: groups}}).map(function (group) {
+        if (group.instructors) {
+            users = _.concat(users, group.instructors);
+        }
+        if (group.students) {
+            users = _.concat(users, group.students);
+        }
+    });
+    return Meteor.users.find({_id: {$in: users}},
+        {fields: {services: 1, extendedProfile: 1, roles: 1}});
 });
 
 

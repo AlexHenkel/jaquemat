@@ -6,8 +6,24 @@ Template.GetMessages.onCreated(function () {
 	});
 });
 
+Template.GetMessages.helpers({
+	senderImage: function (senderId) {
+		return Meteor.users.findOne(senderId).extendedProfile.profile_picture;
+	},
+	senderStatus: function (senderId) {
+		let status = Meteor.users.findOne(senderId).extendedProfile.type;
+		let statusList = {
+			student: "Beneficiario",
+			coordinator: "Coordinador",
+			instructor: "Instructor",
+			principal: "Director"
+		}
+		return statusList[status];
+	}
+});
+
 Template.GetMessages.events({
-	'click .fa-trash': function() {
+	'click .delete': function() {
 		Meteor.call('deleteMessage', this._id);
 	}
 })

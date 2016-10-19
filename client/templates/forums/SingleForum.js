@@ -5,6 +5,7 @@ Template.SingleForum.onCreated(function () {
         self.subscribe('singleForum', id); // Subscribe to self forum
         self.subscribe('groupsInForum', id); // Subscribe to groups in forum
         self.subscribe('selfUser');
+        self.subscribe('usersInForum', id);
     });
 });
 
