@@ -17,9 +17,12 @@ Template.SingleGroup.helpers({
 
 Template.SingleGroup.events({
 	'click .edit': function(event, template) {
-		Session.set('editGroup', 1); // Open form to add groups
+		Session.set('editGroup', 1); // Open form to edit groups
 	},
 	'click .attendance': function(event, template) {
-		Session.set('takeAttendance', 1); // Open form to add groups
-	}
+		Session.set('takeAttendance', 1); // Open form to take attendance
+	},
+	'click .new-test': function(event, template) {
+		Session.set('newTest', 1); // Open form to add test
+	},
 });

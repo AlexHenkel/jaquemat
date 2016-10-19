@@ -59,6 +59,14 @@ Meteor.methods({
 	},
 
 	////////////////////////
+	///  Tests
+	////////////////////////
+	
+	insertTest: function(groupId, name, short_name) {
+		Tests.insert({name: name, short_name: short_name, group: groupId});
+	},
+
+	////////////////////////
 	///  Users
 	////////////////////////
 

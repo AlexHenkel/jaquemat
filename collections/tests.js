@@ -20,6 +20,10 @@ TestsSchema = new SimpleSchema({
         type: String,
         label: "Nombre del examen"
     },
+    short_name: {
+        type: String,
+        label: "Nombre corto del examen"
+    },
     group: {
         type: String
     }
