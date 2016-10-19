@@ -2,7 +2,8 @@ Template.Forums.onCreated(function () {
     var self = this;
     self.autorun(function() {
         self.subscribe('forums'); // Subscribe to forums
-        self.subscribe('currentGroups'); // Subscribe to groups
+        self.subscribe('groups'); // Subscribe to groups
+        self.subscribe('periods'); // Subscribe to periods
     });
 });
 

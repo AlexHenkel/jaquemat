@@ -26,7 +26,7 @@ GroupsSchema = new SimpleSchema({
         autoform: {
             type: "universe-select",
             options: function () { // Get all destinations in specific format (label, value)
-                return Periods.find({}).map(function(period) {
+                return Periods.find({status: { $in: ['current', 'pending']}}).map(function(period) {
                     return {label: period.name, value: period._id};
                 });
             }

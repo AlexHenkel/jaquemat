@@ -66,6 +66,13 @@ Meteor.publish('singleForum', function (id) {
     return Forums.find(id);
 });
 
+Meteor.publish('currentForums', function () {
+    let periodsArr = Periods.find({status: { $in: ['current', 'pending']}}).map(function (period) {
+        return period._id;
+    });
+    return Periods.find({period: {$in: periodsArr}});
+});
+
 ////////////////////////
 ///  Messages
 ////////////////////////
