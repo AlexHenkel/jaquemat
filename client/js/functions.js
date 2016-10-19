@@ -10,7 +10,12 @@ sanitizeRegisterForm = function() {
 	});
 
 	$("#registerForm select").each(function() {
-		infoObj[$(this).attr("name")] = $(this).val();
+		if (Array.isArray($(this).val())) {
+			infoObj[$(this).attr("name")] = $(this).val()[0];
+		}
+		else {
+			infoObj[$(this).attr("name")] = $(this).val();
+		}
 	});
 
 	return infoObj;

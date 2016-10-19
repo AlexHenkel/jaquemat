@@ -18,10 +18,10 @@
 						{{#if hasProfile}}
 							<tr>
 								<td>
-									<a href="/usuario/editar/{{_id}}">IR</a>
+									<a href="/usuario/{{_id}}">IR</a>
 								</td>
-								<td>{{services.facebook.name}}</td>
-								<td>{{services.facebook.email}}</td>
+								<td>{{extendedProfile.name}}</td>
+								<td>{{extendedProfile.email}}</td>
 								<td>{{prettyStatus extendedProfile.type}}</td>
 								<td class="p-relative">
 									{{#if isActive }}

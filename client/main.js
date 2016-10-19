@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 Template.registerHelper('isInRole', (role) => {
 	return Roles.userIsInRole(Meteor.userId(), role);
 });

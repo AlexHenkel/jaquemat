@@ -146,7 +146,6 @@ Meteor.methods({
 	// Updates user extended profile
 	updateUser: function(profile) {
 		let user = Meteor.users.findOne(this.userId);
-		profile.profile_picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
 		profile.type = user.extendedProfile.type;
 		if (user.extendedProfile.school) {
 			profile.school = user.extendedProfile.school;

@@ -1,0 +1,10 @@
+<template name="Profile">
+	{{#if Template.subscriptionsReady}}
+		<h2 class="title">Perfil de {{editUser.extendedProfile.name}}</h2>
+		<div class="row">
+			<div class="col s12">
+				{{> PersonalInfo}}
+			</div>
+		</div>
+	{{/if}}
+</template>

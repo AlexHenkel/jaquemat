@@ -20,23 +20,6 @@ ForumsSchema = new SimpleSchema({
         type: String,
         label: "Nombre del foro"
     },
-    groups: {
-        type: [String],
-        label: "Grupos del foro",
-        autoform: {
-            type: "universe-select",
-            options: function () { // Get current groups in specific format (label, value)
-                let periodsId = Periods.find({status: { $in: ['current', 'pending']}}).map(function(period) {
-                    return period._id;
-                });
-                return Groups.find({period: {$in: periodsId}}).map(function(group) {
-                    return {label: group.name, value: group._id};
-                });
-            },
-            multiple: true,
-            create: false
-        }
-    },
     period: {
         type: String,
         label: "Periodo",
@@ -47,6 +30,21 @@ ForumsSchema = new SimpleSchema({
                     return {label: period.name, value: period._id};
                 });
             }
+        }
+    },
+    groups: {
+        type: [String],
+        label: "Grupos del foro",
+        autoform: {
+            type: "universe-select",
+            options: function () { // Get current groups in specific format (label, value)
+                let periodId = AutoForm.getFieldValue("period");
+                return Groups.find({period: periodId}).map(function(group) {
+                    return {label: group.name, value: group._id};
+                });
+            },
+            multiple: true,
+            create: false
         }
     },
 });
