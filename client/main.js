@@ -28,6 +28,17 @@ Template.registerHelper('inArray', (item, array) => {
 	return _.indexOf(array, item) + 1;
 });
 
+Template.registerHelper('periodName', (id) => {
+	return Periods.findOne(id).name; // Get periods
+});
+
+Template.registerHelper('groupName', (id) => {
+	let group = Groups.findOne(id);
+	if (group) {
+		return group.name;
+	}
+});
+
 //////////////////////////////////
 ///  SINGLE ELEMENTS
 /////////////////////////////////
@@ -70,17 +81,6 @@ Template.registerHelper('test', () => {
 
 Template.registerHelper('school', () => {
 	return School.findOne(); // Get school
-});
-
-Template.registerHelper('periodName', (id) => {
-	return Periods.findOne(id).name; // Get periods
-});
-
-Template.registerHelper('groupName', (id) => {
-	let group = Groups.findOne(id);
-	if (group) {
-		return group.name;
-	}
 });
 
 //////////////////////////////////
