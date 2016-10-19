@@ -12,6 +12,9 @@
 			<tr>
 				<th>Nombre</th>
 				<th>A</th>
+				{{#each tests}}
+					<th>{{short_name}}</th>
+				{{/each}}
 			</tr>
 		</thead>
 		<tbody>
@@ -19,6 +22,9 @@
 				<tr>
 					<td>{{this.extendedProfile.name}}</td>
 					<td>{{countAttendanceStudents}}</td>
+					{{#each tests}}
+						<td></td>
+					{{/each}}
 				</tr>
 			{{/each}}
 		</tbody>

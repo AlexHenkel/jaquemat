@@ -23,6 +23,14 @@ Meteor.publish('currentPeriods', function () {
 });
 
 ////////////////////////
+///  Grades
+////////////////////////
+
+Meteor.publish('gradesInTest', function (testId) {
+    return Grades.find({test: testId});
+});
+
+////////////////////////
 ///  Groups
 ////////////////////////
 
@@ -147,6 +155,12 @@ Meteor.publish('instructorsInGroupOfAttendance', function(attendanceId) {
     let groupId = Attendances.findOne(attendanceId).group;
     let instructorsArr = Groups.findOne(groupId).instructors; 
     return Meteor.users.find({_id :{ $in: instructorsArr }});
+});
+
+Meteor.publish('studentsInGroupOfTest', function(testId) {
+    let groupId = Tests.findOne(testId).group;
+    let studentsArr = Groups.findOne(groupId).students; 
+    return Meteor.users.find({ _id: {$in: studentsArr }});
 });
 
 

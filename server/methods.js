@@ -74,6 +74,17 @@ Meteor.methods({
 		Tests.insert({name: name, short_name: short_name, group: groupId});
 	},
 
+	gradeTest: function(testId, students) {
+		_.map(students, function(n){
+			if (Grades.find({student: n._id, test: testId}).count()) {
+				Grades.update({student: n._id, test: testId}, {$set: {grade: n.grade}});
+			}
+			else {
+				Grades.insert({student: n._id, test: testId, grade: n.grade});
+			}
+		});
+	},
+
 	////////////////////////
 	///  Users
 	////////////////////////

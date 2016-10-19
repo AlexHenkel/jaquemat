@@ -1,0 +1,32 @@
+<template name="GradeTest">
+	{{#if Template.subscriptionsReady}}
+		<h2 class="title">Calificar {{test.name}}</h2>
+		<div class="card">
+			<div class="card-content">
+				<p class="error-message"></p>
+				<table class="responsive-table bordered" id="studentsTable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Calificación</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each students}}
+							<tr>
+								<td>{{this.extendedProfile.name}}</td>
+								<td>
+									<input type="number" name="" id="{{this._id}}" maxlength="3" value="{{grade this._id}}">
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+			<div class="card-action">
+				<button type="submit" class="btn-submit btn waves-light waves-effect">Calificar Examen</button>
+    			<a href="/grupo/{{test.group}}" class="btn-flat waves-effect waves-grey">Regresar al Grupo</a>
+    		</div>
+		</div>
+	{{/if}}
+</template>
