@@ -6,6 +6,18 @@ Meteor.methods({
 	// Deletes group
 	deleteGroup: function(id) {
 		Groups.remove(id);
+		// Remove group from forums
+		Forums.update({groups: id}, {$pull: {groups: id}});
+		// Delete forums with no groups
+		Meteor.call('sanitizeForums');
+		// Delete grades of tests of group
+		Tests.find({group: id}).map(function (test) {
+			Grades.remove({test: test._id});
+		});
+		// Delete tests of group
+		Tests.remove({group: id});
+		// Delete attendance of group
+		Attendances.remove({group: id});
 	},
 
 	////////////////////////
@@ -36,7 +48,20 @@ Meteor.methods({
 
 	// Deletes school
 	deleteSchool: function(id) {
+		// Delete school
 		School.remove(id);
+		Meteor.users.find({"extendedProfile.school": id}).map(function (user) {
+			// Remove users from groups
+			Groups.update({students: user._id}, {$pull: {students: user._id}});
+			// Remove grades from users
+			Grades.remove({student: user._id});
+			// Remove messages from users
+			Messages.remove({sender: user._id});
+		});
+
+		// Remove principals and students of that school
+		Meteor.users.remove({roles: principal})
+
 	},
 
 	////////////////////////
@@ -46,6 +71,8 @@ Meteor.methods({
 	// Deletes forum
 	deleteForum: function(id) {
 		Forums.remove(id);
+		// Remove messages in forum
+		Messages.remove({owner: id});
 	},
 
 	////////////////////////
@@ -55,6 +82,8 @@ Meteor.methods({
 	// Deletes test
 	deleteTest: function(id) {
 		Tests.remove(id);
+		// Delte grades of test
+		Grades.remove({test: id});
 	},
 
 	////////////////////////
@@ -64,6 +93,24 @@ Meteor.methods({
 	// Deletes period
 	deletePeriod: function(id) {
 		Periods.remove(id);
+		
+		Groups.find({period: id}).map(function (group) {
+			Tests.find({group: group._id}).map(function (test) {
+				// Delete grades of tests of group
+				Grades.remove({test: test._id});
+			});
+			// Delete tests of group
+			Tests.remove({group: group});
+		});
+		// Delete groups
+		Groups.remove({period: id});
+		
+		Forums.find({period: id}).map(function (forum) {
+			// Delete messages in forum in period
+			Messages.remove({owner: forum._id});
+		});
+		// Delete forums in period
+		Forums.remove({period: id});
 	},
 
 	////////////////////////
@@ -121,6 +168,12 @@ Meteor.methods({
 	// Deletes user
 	deleteUser: function(id) {
 		Meteor.users.remove(id);
+		// Remove user from groups
+		Groups.update({students: id}, {$pull: {students: id}});
+		// Remove grades from user
+		Grades.remove({student: id});
+		// Remove messages from user
+		Messages.remove({sender: id});
 	},
 
 	////////////////////////
