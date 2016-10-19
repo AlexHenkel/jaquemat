@@ -1,0 +1,76 @@
+<template name="SingleAttendance">
+	<h2 class="title">Editar Lista</h2>
+	{{#if Template.subscriptionsReady}}
+		<div class="card">
+			<div class="card-content">
+				<p class="error-message"></p>
+				<label for="date" class="">Fecha de Hoy</label>
+				<input type="text" id="date" name="date" value="{{attendance.date}}">
+				<h6 class="title">Instructores</h6>
+				<table class="responsive-table bordered" id="instructorsTable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Presente</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each instructors}}
+							<tr>
+								<td>{{this.extendedProfile.name}}</td>
+								<td>
+									<div class="switch">
+										<label>
+											No
+											{{#if inArray this._id attendance.instructors}}
+												<input type="checkbox" id="{{this._id}}" checked>
+											{{else}}
+												<input type="checkbox" id="{{this._id}}">
+											{{/if}}
+											<span class="lever"></span>
+											Si
+										</label>
+									</div>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+				<h6 class="title m-t-15">Beneficiarios</h6>
+				<table class="responsive-table bordered" id="studentsTable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Presente</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each students}}
+							<tr>
+								<td>{{this.extendedProfile.name}}</td>
+								<td>
+									<div class="switch">
+										<label>
+											No
+											{{#if inArray this._id attendance.students}}
+												<input type="checkbox" id="{{this._id}}" checked>
+											{{else}}
+												<input type="checkbox" id="{{this._id}}">
+											{{/if}}
+											<span class="lever"></span>
+											Si
+										</label>
+									</div>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+			<div class="card-action">
+				<button type="submit" class="btn-submit btn waves-light waves-effect">Guardar Asistencia</button>
+    			<a href="/grupo/{{attendance.group}}" class="btn-flat waves-effect waves-grey">Regresar al Grupo</a>
+    		</div>
+		</div>
+	{{/if}}
+</template>

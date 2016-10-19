@@ -8,9 +8,9 @@
 	    	{{#if $.Session.get 'takeAttendance'}}
 		    	{{> TakeAttendance}}
 		    {{else}}
-		        <button class="new-group btn waves-light waves-effect red attendance">Pasar Lista</button>
-				<button class="new-group btn waves-light waves-effect blue">Agregar Examen</button>
-				<button class="new-group btn waves-light waves-effect orange edit">Inscribir</button>
+		        <button class="btn waves-light waves-effect red attendance">Pasar Lista</button>
+				<button class="btn waves-light waves-effect blue">Agregar Examen</button>
+				<button class="btn waves-light waves-effect orange edit">Inscribir</button>
 				{{#if Template.subscriptionsReady}}
 					{{> GroupList}}
 					<div class="row m-t-15">

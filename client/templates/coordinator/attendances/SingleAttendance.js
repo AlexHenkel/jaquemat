@@ -1,4 +1,15 @@
-Template.TakeAttendance.onRendered(function(){
+Template.SingleAttendance.onCreated(function () {
+    var self = this;
+    self.autorun(function() {
+    	let id = FlowRouter.getParam("id");
+        self.subscribe('studentsInGroupOfAttendance', id);
+    	self.subscribe('instructorsInGroupOfAttendance', id);
+    	self.subscribe('singleAttendance', id);
+    });
+});
+
+
+Template.SingleAttendance.onRendered(function(){
 	$("#date").datetimepicker({
 		timepicker: false,
         format:'DD/MM/YYYY',
@@ -6,10 +17,7 @@ Template.TakeAttendance.onRendered(function(){
 	});
 });
 
-Template.TakeAttendance.events({
-	'click .close': function() {
-		Session.set('takeAttendance', 0);
-	},
+Template.SingleAttendance.events({
 	'click button[type="submit"]': function(event, template) {
 		event.preventDefault();
 		$(".error-message").html("");
@@ -31,8 +39,7 @@ Template.TakeAttendance.events({
 			students.push($(this).attr("id"))
 		});
 
-		let groupId = FlowRouter.getParam("id");
-		Meteor.call('takeAttendance', $("input[name='date']").val(), groupId, instructors, students);
-		Session.set('takeAttendance', 0);
+		let attendanceId = FlowRouter.getParam("id");
+		Meteor.call('updateAttendance', attendanceId, $("input[name='date']").val(), instructors, students);
 	}
 });

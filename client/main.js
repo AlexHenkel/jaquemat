@@ -24,6 +24,10 @@ Template.registerHelper('prettyStatus', (status) => {
 	return statusList[status];
 });
 
+Template.registerHelper('inArray', (item, array) => {
+	return _.indexOf(array, item) + 1;
+});
+
 //////////////////////////////////
 ///  SINGLE ELEMENTS
 /////////////////////////////////

@@ -69,6 +69,10 @@ Meteor.publish('attendancesInGroup', function (group) {
     return Attendances.find({group: group});
 });
 
+Meteor.publish('singleAttendance', function (id) {
+    return Attendances.find(id);
+});
+
 ////////////////////////
 ///  Users
 ////////////////////////
@@ -113,13 +117,24 @@ Meteor.publish('instructors', function() {
     return Meteor.users.find({roles: "instructor"});
 });
 
-
 Meteor.publish('studentsInPeriod', function(period) {
     return Meteor.users.find({ $and: [{roles: "student"}, {"extendedProfile.period": period}]});
 });
 
 Meteor.publish('instructorsInPeriod', function(period) {
     return Meteor.users.find({ $and: [{roles: "instructor"}, {"extendedProfile.period": period}]});
+});
+
+Meteor.publish('studentsInGroupOfAttendance', function(attendanceId) {
+    let groupId = Attendances.findOne(attendanceId).group;
+    let studentsArr = Groups.findOne(groupId).students; 
+    return Meteor.users.find({ _id: {$in: studentsArr }});
+});
+
+Meteor.publish('instructorsInGroupOfAttendance', function(attendanceId) {
+    let groupId = Attendances.findOne(attendanceId).group;
+    let instructorsArr = Groups.findOne(groupId).instructors; 
+    return Meteor.users.find({_id :{ $in: instructorsArr }});
 });
 
 

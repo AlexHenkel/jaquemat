@@ -101,5 +101,9 @@ Meteor.methods({
 	////////////////////////
 	takeAttendance: function(date, groupId, instructors, students) {
 		Attendances.insert({date: date, group: groupId, instructors: instructors, students: students});
+	},
+
+	updateAttendance: function(attendanceId, date, instructors, students) {
+		Attendances.update({_id: attendanceId}, {$set: {date: date, instructors: instructors, students: students}});
 	}
 });
