@@ -1,6 +1,6 @@
 var _ = require('lodash');
 ////////////////////////
-///  Periods
+///  Tests
 ////////////////////////
 
 Meteor.publish('testsInGroup', function (group) {
@@ -12,7 +12,7 @@ Meteor.publish('singleTest', function (id) {
 });
 
 ////////////////////////
-///  Tests
+///  Periods
 ////////////////////////
 
 Meteor.publish('periods', function () {
@@ -72,6 +72,10 @@ Meteor.publish('currentForums', function () {
         return period._id;
     });
     return Forums.find({period: {$in: periodsArr}});
+});
+
+Meteor.publish('forumsInGroup', function (group) {
+    return Forums.find({groups: group});
 });
 
 ////////////////////////

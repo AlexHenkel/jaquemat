@@ -7,6 +7,7 @@ Template.SingleGroup.onCreated(function () {
     	self.subscribe('instructorsInGroup', id);
     	self.subscribe('attendancesInGroup', id);
     	self.subscribe('testsInGroup', id);
+    	self.subscribe('forumsInGroup', id);
     });
 });
 

@@ -1,0 +1,13 @@
+<template name="ForumList">
+	<ul class="collection with-header">
+        <li class="collection-header"><h4 class="title collection-title">Foros</h4></li>
+        {{#each forums }}
+            <li class="collection-item">
+				{{name}}
+				<a href="/foro/{{_id}}" class="secondary-content"><i class="material-icons go">send</i></a>
+		    </li>
+        {{else}}
+            <li class="collection-item">Aun no pertenece a ningún foro :(</li>
+        {{/each}}
+    </ul>
+</template>
