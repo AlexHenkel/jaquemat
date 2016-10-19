@@ -4,5 +4,8 @@ Template.GroupList.helpers({
 	},
 	countAttendanceInstructors: function () {
 		return Attendances.find({instructors: this._id}).count();
+	},
+	getGrade: function(testId, studentId) {
+		return Grades.findOne({test: testId, student: studentId}).grade;
 	}
 });

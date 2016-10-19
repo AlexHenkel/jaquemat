@@ -31,6 +31,14 @@ Meteor.publish('gradesInTest', function (testId) {
     return Grades.find({test: testId});
 });
 
+Meteor.publish('gradesInGroup', function (group) {
+    let tests = [];
+    Tests.find({group: group}).map(function (test) {
+        tests.push(test._id);
+    });
+    return Grades.find({test: {$in: tests}});
+});
+
 ////////////////////////
 ///  Groups
 ////////////////////////
