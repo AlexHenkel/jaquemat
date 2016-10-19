@@ -1,3 +1,5 @@
 Template.Header.onRendered(function() {
-	$(".button-collapse").sideNav();
+	Meteor.setTimeout(function() {
+		$(".button-collapse").sideNav();
+	}, 100);
 });
