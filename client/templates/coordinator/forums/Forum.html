@@ -17,7 +17,7 @@
 					</div>
 				{{else}}
 					<div class="list-item">
-						<p class="value">{{#each groups}} {{this.name}}, {{/each}}</p>
+						<p class="value">{{#each this.groups}} {{groupName this}}, {{/each}}</p>
 						<p class="description">Grupos</p>
 					</div>
 				{{/if}}
