@@ -23,8 +23,7 @@ Meteor.methods({
 			Messages.insert({
 				body: body, 
 				sender: this.userId, 
-				sender_name: user.profile.first_name, 
-				// sender_name: user.services.facebook.name
+				sender_name: user.extendedProfile.name,
 				created_at: Date.now(),
 				owner: forumId
 			});
@@ -35,7 +34,7 @@ Meteor.methods({
 	///  Schools
 	////////////////////////
 
-	// Deletes group
+	// Deletes school
 	deleteSchool: function(id) {
 		School.remove(id);
 	},
@@ -44,16 +43,25 @@ Meteor.methods({
 	///  Forums
 	////////////////////////
 
-	// Deletes group
+	// Deletes forum
 	deleteForum: function(id) {
 		Forums.remove(id);
+	},
+
+	////////////////////////
+	///  Tests
+	////////////////////////
+
+	// Deletes test
+	deleteTest: function(id) {
+		Tests.remove(id);
 	},
 
 	////////////////////////
 	///  Periods
 	////////////////////////
 
-	// Deletes group
+	// Deletes period
 	deletePeriod: function(id) {
 		Periods.remove(id);
 	},
@@ -88,7 +96,7 @@ Meteor.methods({
 		Meteor.users.update({_id: this.userId}, { $set: { extendedProfile : profile}});
 	},
 
-	// Deletes group
+	// Activate user
 	toggleUser: function(id) {
 		let user = Meteor.users.findOne({_id: id});
 		if (Roles.userIsInRole(id, user.extendedProfile.type)) {
@@ -99,8 +107,8 @@ Meteor.methods({
 		}
 	},
 
-	// Deletes group
-	deleteUse: function(id) {
+	// Deletes user
+	deleteUser: function(id) {
 		Meteor.users.remove(id);
 	},
 

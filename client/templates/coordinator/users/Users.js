@@ -21,6 +21,6 @@ Template.Users.events({
 		Meteor.call('toggleUser', this._id);
 	},
 	'click .fa-trash': function(event, template) {
-		Meteor.call('deleteUse', this._id);
+		Meteor.call('deleteUser', this._id);
 	}
 });

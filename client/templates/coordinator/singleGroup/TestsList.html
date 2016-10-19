@@ -1,0 +1,14 @@
+<template name="TestsList">
+	<ul class="collection with-header">
+        <li class="collection-header"><h4 class="title collection-title">Examenes</h4></li>
+        {{#each tests }}
+            <li class="collection-item">
+				{{name}}
+                <a href="#" class="secondary-content"><i class="material-icons delete disabled" data-id="{{_id}}">delete</i></a>
+				<a href="/examen/{{_id}}" class="secondary-content"><i class="material-icons go">send</i></a>
+		    </li>
+        {{else}}
+            <li class="collection-item">Aun no hay examenes registrados :(</li>
+        {{/each}}
+    </ul>
+</template>

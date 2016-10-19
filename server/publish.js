@@ -2,6 +2,18 @@
 ///  Periods
 ////////////////////////
 
+Meteor.publish('testsInGroup', function (group) {
+    return Tests.find({group: group});
+});
+
+Meteor.publish('singleTest', function (id) {
+    return Tests.find(id);
+});
+
+////////////////////////
+///  Tests
+////////////////////////
+
 Meteor.publish('periods', function () {
     return Periods.find();
 });

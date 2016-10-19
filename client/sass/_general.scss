@@ -17,6 +17,12 @@
 
 .disabled {
 	cursor: pointer !important;
+	&.material-icons {
+		color: $grey;
+		&:hover {
+			color: $light-accent;
+		}
+	}
 }
 
 .btn-add,
