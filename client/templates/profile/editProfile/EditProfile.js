@@ -39,7 +39,8 @@ Template.EditProfile.events({
 		}
 		else {
 			let profile = sanitizeRegisterForm();
-			Meteor.call('updateUser', profile);
+			let id = FlowRouter.getParam("id");
+			Meteor.call('updateUser', id, profile);
 		}
 	}
 });

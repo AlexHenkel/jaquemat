@@ -144,13 +144,13 @@ Meteor.methods({
 	},
 
 	// Updates user extended profile
-	updateUser: function(profile) {
-		let user = Meteor.users.findOne(this.userId);
+	updateUser: function(id, profile) {
+		let user = Meteor.users.findOne(id);
 		profile.type = user.extendedProfile.type;
 		if (user.extendedProfile.school) {
 			profile.school = user.extendedProfile.school;
 		}
-		Meteor.users.update({_id: this.userId}, { $set: { extendedProfile : profile}});
+		Meteor.users.update({_id: id}, { $set: { extendedProfile : profile}});
 	},
 
 	// Activate user
