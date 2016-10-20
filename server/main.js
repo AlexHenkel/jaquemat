@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+var _ = require('lodash');
 
 Meteor.startup(() => {
 	// Get current date in ISO format
