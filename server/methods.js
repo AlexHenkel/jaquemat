@@ -49,7 +49,7 @@ Meteor.methods({
 	// Deletes school
 	deleteSchool: function(id) {
 		// Delete school
-		School.remove(id);
+		Schools.remove(id);
 		Meteor.users.find({"extendedProfile.school": id}).map(function (user) {
 			// Remove users from groups
 			Groups.update({students: user._id}, {$pull: {students: user._id}});
@@ -60,7 +60,7 @@ Meteor.methods({
 		});
 
 		// Remove principals and students of that school
-		Meteor.users.remove({roles: principal})
+		Meteor.users.remove({$or: [{roles: 'student'}, {roles: 'principal'}]});
 
 	},
 
