@@ -5,6 +5,14 @@
 			<div class="col s12">
 				{{> PersonalInfo}}
 			</div>
+			{{#if isinRole 'coordinator'}}
+			{{/if}}
+			{{#if isinRole 'instructor'}}
+			{{/if}}
+			{{#if isinRole 'student'}}
+			{{/if}}
+			{{#if isinRole 'principal'}}
+			{{/if}}
 		</div>
 	{{/if}}
 </template>
