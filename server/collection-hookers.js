@@ -41,3 +41,20 @@ Periods.before.update(function (userId, doc, fieldNames, modifier, options) {
 		modifier.$set.start_date = Date.parse(dateObject);	
 	}
 });
+
+
+// Change dates to ISO format
+Attendances.before.insert(function (userId, doc) {
+	let dateParts = doc.date.split("/");
+	let dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+	doc.date= Date.parse(dateObject);
+});
+
+Attendances.before.update(function (userId, doc, fieldNames, modifier, options) {
+	// Transform string date to ISO date of start date	
+	if (_.indexOf(fieldNames, 'date') >= 0) {
+		let dateParts = modifier.$set.date.split("/");
+		let dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+		modifier.date = Date.parse(dateObject);
+	}
+});
