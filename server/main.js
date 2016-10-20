@@ -6,10 +6,16 @@ Meteor.startup(() => {
 	let now = new Date();
 	now = Date.parse(now);
 
-	Periods.find({status: {$in: ['current', 'pending']}}).map(function (period) {
-		let dateParts = period.end_date.split("/");
-		let dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-		if (Date.parse(dateObject) < now) {
+	// Change pending periods to current
+	Periods.find({status: {$in: ['pending']}}).map(function (period) {
+		if (period.start_date > now) {
+			Periods.update({_id: period._id}, {$set: {status: 'current'}});
+		}
+	});
+
+	// Change current periods to past
+	Periods.find({status: {$in: ['current']}}).map(function (period) {
+		if (period.end_date < now) {
 			Periods.update({_id: period._id}, {$set: {status: 'past'}});
 		}
 	});
