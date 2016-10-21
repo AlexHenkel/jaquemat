@@ -12,16 +12,14 @@
     			</span>
 				
 				{{#if editMode}}
-					<div class="edit-quickform">
-						{{> quickForm collection="Periods" id=updatePeriodId type="update" doc=this buttonClasses="btn waves-light waves-effect btn-submit" buttonContent="Guardar"}}
-					</div>
+					{{> EditPeriod}}
 				{{else}}
 					<div class="list-item">
-						<p class="value">{{start_date}}</p>
+						<p class="value">{{calendarDate start_date}}</p>
 						<p class="description">Fecha de Inicio</p>
 					</div>
 					<div class="list-item">
-						<p class="value">{{end_date}}</p>
+						<p class="value">{{calendarDate end_date}}</p>
 						<p class="description">Fecha de Fin</p>
 					</div>
 				{{/if}}

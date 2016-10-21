@@ -4,9 +4,6 @@ Template.Period.onCreated(function() {
 
 
 Template.Period.helpers({
-	updatePeriodId: function(){
-		return this._id;
-	},
 	editMode: function() {
 		return Template.instance().editMode.get();
 	}
