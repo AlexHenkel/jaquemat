@@ -16,6 +16,10 @@ Template.registerHelper('humanDate', (date) => {
 	return moment(date).calendar();
 });
 
+Template.registerHelper('calendarDate', (date) => {
+	return moment(date).format("DD/MM/YYYY");
+});
+
 Template.registerHelper('prettyStatus', (status) => {
 	let statusList = {
 		student: "Beneficiario",
@@ -122,7 +126,7 @@ Template.registerHelper('messages', () => {
 });
 
 Template.registerHelper('periods', () => {
-	return Periods.find(); // Get periods
+	return Periods.find({}, {sort: {start_date: -1}}); // Get periods
 });
 
 Template.registerHelper('tests', () => {

@@ -3,7 +3,7 @@
         <li class="collection-header"><h4 class="title collection-title">Asistencias</h4></li>
         {{#each attendances }}
             <li class="collection-item">
-				{{date}}
+				{{calendarDate date}}
                 <a href="#" class="secondary-content"><i class="material-icons delete disabled" data-id="{{_id}}">delete</i></a>
 				<a href="/lista/{{_id}}" class="secondary-content"><i class="material-icons go">send</i></a>
 		    </li>
