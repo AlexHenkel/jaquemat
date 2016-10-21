@@ -8,7 +8,7 @@ Meteor.startup(() => {
 
 	// Change pending periods to current
 	Periods.find({status: {$in: ['pending']}}).map(function (period) {
-		if (period.start_date > now) {
+		if (period.start_date < now) {
 			Periods.update({_id: period._id}, {$set: {status: 'current'}});
 		}
 	});

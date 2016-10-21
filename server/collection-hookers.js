@@ -13,10 +13,11 @@ Periods.before.insert(function (userId, doc) {
 	now = Date.parse(now);
 
 	// Change current periods to pending
-	if (doc.start_date < now) {
+	if (doc.start_date > now) {
 		doc.status = 'pending';
 	}
 });
+
 
 Periods.before.update(function (userId, doc, fieldNames, modifier, options) {
 	// Get current date in ISO format
@@ -30,9 +31,12 @@ Periods.before.update(function (userId, doc, fieldNames, modifier, options) {
 		modifier.$set.start_date = Date.parse(dateObject);
 
 		// Change current periods to pending
-		if (modifier.$set.start_date < now) {
+		if (modifier.$set.start_date > now) {
 			modifier.$set.status = 'pending';
-		}	
+		}
+		else {
+			modifier.$set.status = 'current';
+		}
 	}
 	// Transform string date to ISO date of end date
 	if (_.indexOf(fieldNames, 'end_date') >= 0) {
