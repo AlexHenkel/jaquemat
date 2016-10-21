@@ -8,6 +8,14 @@
 			<div class="col s12">
 				{{#if currentUserInRole 'instructor'}}
 					{{> InfoPeriodUser}}
+					<div class="row">
+						<div class="col s12 m6">
+							{{> CurrentGroupsUser }}
+						</div>
+						<div class="col s12 m6">
+							{{> CurrentForumsUser }}
+						</div>
+					</div>
 				{{/if}}
 				{{#if currentUserInRole 'student'}}
 					{{> InfoPeriodUser}}
@@ -18,9 +26,11 @@
 								{{> CurrentGroupsUser }}
 							</div>
 						{{/if}}
-						<div class="col s12 m6">
-							{{> CurrentForumsUser }}
-						</div>
+						{{#if isInRole instructorStudentRole}}
+							<div class="col s12 m6">
+								{{> CurrentForumsUser }}
+							</div>
+						{{/if}}
 					</div>
 				{{/if}}
 			</div>

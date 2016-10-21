@@ -147,6 +147,7 @@ Meteor.methods({
 	updateUser: function(id, profile) {
 		let user = Meteor.users.findOne(id);
 		profile.type = user.extendedProfile.type;
+		profile.profile_picture = user.extendedProfile.profile_picture;
 		if (user.extendedProfile.school) {
 			profile.school = user.extendedProfile.school;
 		}

@@ -20,6 +20,12 @@
 						{{#if isInRole 'coordinator'}}
 							{{> CoordinatorLinks}}
 						{{/if}}
+						{{#if isInRole 'instructor'}}
+							{{> CoordinatorLinks}}
+						{{/if}}
+						{{#if isInRole 'principal'}}
+							{{> CoordinatorLinks}}
+						{{/if}}
 					{{/if}}
 				</ul>
 			</div>

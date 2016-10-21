@@ -6,6 +6,9 @@
 		{{#if isInRole 'instructor'}}
 			{{ instructorHome }}
 		{{/if}}
+		{{#if isInRole 'student'}}
+			{{ studentHome }}
+		{{/if}}
 		{{#if hasProfile}}
 			{{>SuccessRegister}}
 		{{else}}

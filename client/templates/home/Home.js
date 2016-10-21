@@ -13,6 +13,9 @@ Template.Home.helpers({
 		FlowRouter.go('groups');
 	},
 	instructorHome: () => {
-		FlowRouter.go('login');
+		FlowRouter.go('/usuario/:id', {id: Meteor.userId()});
+	},
+	studentHome: () => {
+		FlowRouter.go('/usuario/:id', {id: Meteor.userId()});
 	}
 });

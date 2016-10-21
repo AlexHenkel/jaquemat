@@ -1,0 +1,8 @@
+<template name="MyUsers">
+	{{#if isInRole 'instructor'}}
+		{{> UsersForInstructors}}
+	{{/if}}
+	{{#if isInRole 'principal'}}
+		{{> UsersForPrincipal}}
+	{{/if}}
+</template>

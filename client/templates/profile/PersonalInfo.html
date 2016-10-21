@@ -10,14 +10,21 @@
 				</span>
 				
 				<div class="row">
-					{{#each properties }}
-						<div class="col s12 m6">
-							<div class="list-item">
-								<p class="value">{{propertyValue this}}</p>
-								<p class="description">{{prettyProperty this}}</p>
-							</div>
+					<div class="col s12 m3">
+						<img class="circle" src="{{editUser.extendedProfile.profile_picture}}">
+					</div>
+					<div class="col s12 m9">
+						<div class="row">
+							{{#each properties }}
+								<div class="col s12 m6">
+									<div class="list-item">
+										<p class="value">{{propertyValue this}}</p>
+										<p class="description">{{prettyProperty this}}</p>
+									</div>
+								</div>
+							{{/each}}
 						</div>
-					{{/each}}
+					</div>
 				</div>
 			</div>
 		</div>

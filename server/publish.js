@@ -64,8 +64,12 @@ Meteor.publish('currentGroupsOfUser', function(id) {
     Periods.find({status: 'current'}).map(function (period) {
         periods.push(period._id);
     });
-
-    return Groups.find({period: {$in: periods}, students: id});
+    if (Roles.userIsInRole(id, 'student')) {
+        return Groups.find({period: {$in: periods}, students: id});
+    }
+    else if (Roles.userIsInRole(id, 'instructor')) {
+        return Groups.find({period: {$in: periods}, instructors: id});
+    }
 });
 
 Meteor.publish('currentGradesOfUser', function(id) {
@@ -134,10 +138,15 @@ Meteor.publish('currentForumsOfUser', function(id) {
     Periods.find({status: 'current'}).map(function (period) {
         periods.push(period._id);
     });
-
-    Groups.find({period: {$in: periods}, students: id}).map(function (group) {
-        groups.push(group._id);
-    });
+    if (Roles.userIsInRole(id, 'student')) {
+        Groups.find({period: {$in: periods}, students: id}).map(function (group) {
+            groups.push(group._id);
+        });
+    } else if (Roles.userIsInRole(id, 'student')) {
+        Groups.find({period: {$in: periods}, instructors: id}).map(function (group) {
+            groups.push(group._id);
+        });
+    }
 
     return Forums.find({groups: {$in: groups}});
 });
@@ -263,13 +272,39 @@ Meteor.publish('usersInForum', function (forumId) {
         users.push(user._id);
     });
     // Add instructors in forum
-    let groups = Forums.findOne(forumId).groups;
-    Groups.find({_id: { $in: groups}}).map(function (group) {
+    Groups.find({_id: { $in: Forums.findOne(forumId).groups}}).map(function (group) {
         users = _.concat(users, group.instructors);
         users = _.concat(users, group.students);
     });
     return Meteor.users.find({_id: {$in: users}},
         {fields: {services: 1, extendedProfile: 1, roles: 1}});
+});
+
+Meteor.publish('currentUsersForInstructor', function () {
+    let periods = [], users = [];
+
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    Groups.find({period: {$in: periods}, instructors: this.userId}).map(function (group) {
+        users = _.concat(users, group.students);
+    });
+
+    return Meteor.users.find({_id: {$in: users}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+});
+
+Meteor.publish('currentUsersForPrincipal', function () {
+    let user = Meteor.users.findOne(this.userId);
+    let periods = [];
+
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    return Meteor.users.find({"extendedProfile.period": {$in: periods}, 
+                                "extendedProfile.school": user.extendedProfile.school,
+                                roles: 'student'}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
 });
 
 
