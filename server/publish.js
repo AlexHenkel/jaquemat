@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 ////////////////////////
 ///  Tests
 ////////////////////////
@@ -16,6 +18,11 @@ Meteor.publish('singleTest', function (id) {
 
 Meteor.publish('periods', function () {
     return Periods.find();
+});
+
+Meteor.publish('periodOfUser', function (id) {
+    let period = Meteor.users.findOne(id).extendedProfile.period;
+    return Periods.find(period);
 });
 
 Meteor.publish('currentPeriods', function () {
@@ -100,6 +107,11 @@ Meteor.publish('schools', function () {
     return Schools.find();
 });
 
+Meteor.publish('schoolOfUser', function (id) {
+    let school = Meteor.users.findOne(id).extendedProfile.school;
+    return Schools.find(school);
+});
+
 ////////////////////////
 ///  Attendances
 ////////////////////////
@@ -118,7 +130,7 @@ Meteor.publish('singleAttendance', function (id) {
 
 Meteor.publish('user', function (id) {
     return Meteor.users.find({_id: id},
-        {fields: {services: 1, extendedProfile: 1}});
+        {fields: {services: 1, extendedProfile: 1, roles: 1}});
 });
 
 Meteor.publish('selfUser', function () {
@@ -135,21 +147,11 @@ Meteor.publish('approvedUsersData', function () {
 });
 
 Meteor.publish('studentsInGroup', function (id) {
-    let group = Groups.findOne(id);
-    let userArray = [];
-    if(group.students) {
-        userArray = _.concat(userArray, group.students);
-    }
-    return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    return Meteor.users.find({_id: {$in: Groups.findOne(id).students}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
 });
 
 Meteor.publish('instructorsInGroup', function (id) {
-    let group = Groups.findOne(id);
-    let userArray = [];
-    if(group.instructors) {
-        userArray = _.concat(userArray, group.instructors);
-    }
-    return Meteor.users.find({_id: {$in: userArray}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
+    return Meteor.users.find({_id: {$in: Groups.findOne(id).instructors}}, {fields: {services: 1, extendedProfile: 1, roles: 1}});
 });
 
 Meteor.publish('students', function() {
@@ -195,12 +197,8 @@ Meteor.publish('usersInForum', function (forumId) {
     // Add instructors in forum
     let groups = Forums.findOne(forumId).groups;
     Groups.find({_id: { $in: groups}}).map(function (group) {
-        if (group.instructors) {
-            users = _.concat(users, group.instructors);
-        }
-        if (group.students) {
-            users = _.concat(users, group.students);
-        }
+        users = _.concat(users, group.instructors);
+        users = _.concat(users, group.students);
     });
     return Meteor.users.find({_id: {$in: users}},
         {fields: {services: 1, extendedProfile: 1, roles: 1}});

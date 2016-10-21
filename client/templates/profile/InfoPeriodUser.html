@@ -1,0 +1,29 @@
+<template name="InfoPeriodUser">
+	<div class="card">
+		<div class="card-content">
+			<span class="card-title">Información</span>
+			<div class="row">
+				<div class="col s12 m6">
+					<div class="list-item">
+						<p class="value">{{firstPeriod }}</p>
+						<p class="description">Miembro desde</p>
+					</div>
+				</div>
+				<div class="col s12 m6">
+					<div class="list-item">
+						<p class="value">{{attendanceCurrentPeriod}}</p>
+						<p class="description">Asistencias este periodo</p>
+					</div>
+				</div>
+				{{#if currentUserInRole 'student'}}
+					<div class="col s12 m6">
+						<div class="list-item">
+							<p class="value">{{averageCurrentPeriod}}</p>
+							<p class="description">Promedio este periodo</p>
+						</div>
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>

@@ -26,12 +26,14 @@ AttendancesSchema = new SimpleSchema({
     instructors: {
         type: [String],
         label: "Instructores del grupo",
-        optional: true
+        optional: true,
+        defaultValue: []
     },
     students: {
         type: [String],
         label: "Alumnos del grupo",
-        optional: true
+        optional: true,
+        defaultValue: []
     },
 });
 

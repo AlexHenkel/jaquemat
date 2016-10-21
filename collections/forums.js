@@ -45,7 +45,8 @@ ForumsSchema = new SimpleSchema({
             },
             multiple: true,
             create: false
-        }
+        },
+        defaultValue: []
     },
 });
 

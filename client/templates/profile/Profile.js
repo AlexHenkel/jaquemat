@@ -5,7 +5,3 @@ Template.Profile.onCreated(function () {
 		self.subscribe('user', id); // Subscribe to current user
 	});
 });
-
-Template.Profile.helpers({
-	
-});

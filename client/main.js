@@ -4,6 +4,11 @@ Template.registerHelper('isInRole', (role) => {
 	return Roles.userIsInRole(Meteor.userId(), role);
 });
 
+Template.registerHelper('currentUserInRole', (role) => {
+	let id = FlowRouter.getParam("id");
+	return Roles.userIsInRole(id, role);
+});
+
 Template.registerHelper('instructorRole', () => {
 	return ["coordinator", "instructor"];
 });
@@ -44,6 +49,10 @@ Template.registerHelper('groupName', (id) => {
 		return group.name;
 	}
 });
+
+//////////////////////////////////
+///  STATICS
+//////////////////////////////////
 
 //////////////////////////////////
 ///  SINGLE ELEMENTS

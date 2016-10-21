@@ -59,6 +59,6 @@ Attendances.before.update(function (userId, doc, fieldNames, modifier, options) 
 	if (_.indexOf(fieldNames, 'date') >= 0) {
 		let dateParts = modifier.$set.date.split("/");
 		let dateObject = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-		modifier.date = Date.parse(dateObject);
+		modifier.$set.date = Date.parse(dateObject);
 	}
 });

@@ -4,8 +4,8 @@ Template.PersonalInfo.onCreated(function () {
 	var self = this;
 	self.autorun(function() {
 		let id = FlowRouter.getParam("id");
-		self.subscribe('periods'); // Subscribe to period of user
-		self.subscribe('schools'); // Subscribe to school of user
+		self.subscribe('periodOfUser', id); // Subscribe to period of user
+		self.subscribe('schoolOfUser', id); // Subscribe to school of user
 	});
 });
 
@@ -13,7 +13,6 @@ Template.PersonalInfo.helpers({
 	properties: function () {
 		let arr = [];
 		let id = FlowRouter.getParam("id");
-		console.log(_.difference(_.keys(Meteor.users.findOne(id).extendedProfile), ['name','type', 'profile_picture']));
 		return _.difference(_.keys(Meteor.users.findOne(id).extendedProfile), ['name','type', 'profile_picture']);
 	},
 	prettyProperty: function(value) {

@@ -189,4 +189,78 @@ Meteor.methods({
 	deleteAttendance: function(id) {
 		Attendances.remove(id);
 	},
+
+	////////////////////////
+	///  Stadistic
+	////////////////////////
+	firstPeriod: function(id) {
+		let user = Meteor.users.findOne(id);
+		let periods = [];
+
+		if (user.extendedProfile.type === "instructor") {
+			Groups.find({instructors: id}).map(function (group) {
+				if (_.indexOf(periods, group.period) < 0) {
+					periods.push(group.period);
+				}
+			});
+		}
+		else if (user.extendedProfile.type === "student") {
+			Groups.find({students: id}).map(function (group) {
+				if (_.indexOf(periods, group.period) < 0) {
+					periods.push(group.period);
+				}
+			});
+		}
+		return Periods.findOne({_id: {$in: periods}}, {sort: { start_date: 1}}).name;
+	},
+
+	attendanceCurrentPeriod: function(id) {
+		let user = Meteor.users.findOne(id);
+		let groups = [];
+		let attendances = 0;
+
+		if (user.extendedProfile.type === "instructor") {
+			Groups.find({instructors: id, period: user.extendedProfile.period}).map(function (group) {
+				groups.push(group._id);
+			});
+
+			attendances = Attendances.find({group: {$in: groups}, instructors: id}).count();
+		}
+		else if (user.extendedProfile.type === "student") {
+			Groups.find({students: id, period: user.extendedProfile.period}).map(function (group) {
+				groups.push(group._id);
+			});
+
+			attendances = Attendances.find({group: {$in: groups}, students: id}).count();
+		}
+		return attendances;
+	},
+
+	averageCurrentPeriod: function(id) {
+		let user = Meteor.users.findOne(id);
+		let groups = [], tests = [];
+		let average = 0, count = 0;
+
+		if (user.extendedProfile.type === "student") {
+			Groups.find({students: id, period: user.extendedProfile.period}).map(function (group) {
+				groups.push(group._id);
+			});
+
+			Tests.find({group: {$in: groups}}).map(function (test) {
+				tests.push(test._id);
+			});
+
+			Grades.find({test: {$in: tests}, student: id}).map(function (grade) {
+				average += grade.grade;
+				count++;
+			});
+		}
+
+		if (count === 0) {
+			return 0;
+		}
+		else {
+			return average / count;
+		}
+	},
 });
