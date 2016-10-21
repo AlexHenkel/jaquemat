@@ -129,6 +129,19 @@ Meteor.publish('currentForums', function () {
     return Forums.find({period: {$in: periodsArr}});
 });
 
+Meteor.publish('currentForumsOfUser', function(id) {
+    let periods = [], groups = [];
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    Groups.find({period: {$in: periods}, students: id}).map(function (group) {
+        groups.push(group._id);
+    });
+
+    return Forums.find({groups: {$in: groups}});
+});
+
 Meteor.publish('forumsInGroup', function (group) {
     return Forums.find({groups: group});
 });

@@ -2,7 +2,6 @@ Template.GradesList.onCreated(function(){
 	var self = this;
     self.autorun(function() {
     	let id = FlowRouter.getParam("id");
-        self.subscribe('currentGroupsOfUser', id);
         self.subscribe('currentAttendancesOfUser', id);
         self.subscribe('currentTestsOfUser', id);
         self.subscribe('currentGradesOfUser', id);

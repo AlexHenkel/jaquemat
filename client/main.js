@@ -13,6 +13,10 @@ Template.registerHelper('instructorRole', () => {
 	return ["coordinator", "instructor"];
 });
 
+Template.registerHelper('principalRole', () => {
+	return ["coordinator", "principal"];
+});
+
 Template.registerHelper('allRoles', () => {
 	return ["coordinator", "instructor", "student", "principal"];
 });
