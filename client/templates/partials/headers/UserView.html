@@ -2,9 +2,9 @@
 	{{#if Template.subscriptionsReady}}
 		<div class="userView">
 			<img class="background" src="/img/office.jpg">
-			<a href="#"><img class="circle" src="{{selfUser.extendedProfile.profile_picture}}"></a>
-			<a href="#"><span class="white-text name">{{selfUser.extendedProfile.name}}</span></a>
-			<a href="#"><span class="white-text email">{{selfUser.extendedProfile.email}}</span></a>
+			<a href="/usuario/{{selfUser._id}}"><img class="circle" src="{{selfUser.extendedProfile.profile_picture}}"></a>
+			<a href="/usuario/{{selfUser._id}}"><span class="white-text name">{{selfUser.extendedProfile.name}}</span></a>
+			<a href="/usuario/{{selfUser._id}}"><span class="white-text email">{{selfUser.extendedProfile.email}}</span></a>
 		</div>
 	{{/if}}
 </template>
