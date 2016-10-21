@@ -233,7 +233,12 @@ Meteor.methods({
 
 			attendances = Attendances.find({group: {$in: groups}, students: id}).count();
 		}
-		return attendances;
+		if (groups.length === 0) {
+			return 0
+		}
+		else {
+			return attendances / groups.length;
+		}
 	},
 
 	averageCurrentPeriod: function(id) {

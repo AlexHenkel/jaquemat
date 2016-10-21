@@ -12,6 +12,20 @@ Meteor.publish('singleTest', function (id) {
     return Tests.find(id);
 });
 
+Meteor.publish('currentTestsOfUser', function(id) {
+    let periods = [], groups = [];
+
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    Groups.find({period: {$in: periods}, students: id}).map(function (group) {
+        groups.push(group._id);
+    });
+
+    return Tests.find({group: {$in: groups}});
+});
+
 ////////////////////////
 ///  Periods
 ////////////////////////
@@ -43,6 +57,33 @@ Meteor.publish('gradesInGroup', function (group) {
         tests.push(test._id);
     });
     return Grades.find({test: {$in: tests}});
+});
+
+Meteor.publish('currentGroupsOfUser', function(id) {
+    let periods = [];
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    return Groups.find({period: {$in: periods}, students: id});
+});
+
+Meteor.publish('currentGradesOfUser', function(id) {
+    let periods = [], groups = [], tests = [];
+
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    Groups.find({period: {$in: periods}, students: id}).map(function (group) {
+        groups.push(group._id);
+    });
+
+    Tests.find({group: {$in: groups}}).map(function (test) {
+        tests.push(test._id);
+    });
+
+    return Grades.find({test: {$in: tests}, student: id});
 });
 
 ////////////////////////
@@ -122,6 +163,20 @@ Meteor.publish('attendancesInGroup', function (group) {
 
 Meteor.publish('singleAttendance', function (id) {
     return Attendances.find(id);
+});
+
+Meteor.publish('currentAttendancesOfUser', function(id) {
+    let periods = [], groups = [];
+
+    Periods.find({status: 'current'}).map(function (period) {
+        periods.push(period._id);
+    });
+
+    Groups.find({period: {$in: periods}, students: id}).map(function (group) {
+        groups.push(group._id);
+    });
+
+    return Attendances.find({group: {$in: groups}, students: id});
 });
 
 ////////////////////////

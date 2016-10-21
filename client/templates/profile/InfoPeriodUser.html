@@ -1,7 +1,7 @@
 <template name="InfoPeriodUser">
 	<div class="card">
 		<div class="card-content">
-			<span class="card-title">Información</span>
+			<span class="card-title">Información del periodo actual</span>
 			<div class="row">
 				<div class="col s12 m6">
 					<div class="list-item">
@@ -12,7 +12,7 @@
 				<div class="col s12 m6">
 					<div class="list-item">
 						<p class="value">{{attendanceCurrentPeriod}}</p>
-						<p class="description">Asistencias este periodo</p>
+						<p class="description">Asistencias promedio este periodo</p>
 					</div>
 				</div>
 				{{#if currentUserInRole 'student'}}

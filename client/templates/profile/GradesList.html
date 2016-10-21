@@ -1,0 +1,32 @@
+<template name="GradesList">
+	{{#if Template.subscriptionsReady}}
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">Boleta</span>
+				<p class="red-text"><b>A</b> = Asistencias</p>
+				{{#each groups}}
+					<table class="responsive-table bordered">
+						<thead>
+							<tr>
+								<th>Grupo</th>
+								<th>A</th>
+								{{#each testsOfGroup _id}}
+									<th>{{short_name}}</th>
+								{{/each}}
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{this.name}}</td>
+								<td>{{countAttendanceStudents _id}}</td>
+								{{#each testsOfGroup _id}}
+									<td>{{ getGrade _id}}</td>
+								{{/each}}
+							</tr>
+						</tbody>
+					</table>
+				{{/each}}
+			</div>
+		</div>
+	{{/if}}
+</template>
