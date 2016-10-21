@@ -13,7 +13,7 @@
 					{{> InfoPeriodUser}}
 					{{> GradesList}}
 					<div class="row">
-						{{#if isInRole principalRole}}
+						{{#if isInRole 'coordinator'}}
 							<div class="col s12 m6">
 								{{> CurrentGroupsUser }}
 							</div>
@@ -23,10 +23,6 @@
 						</div>
 					</div>
 				{{/if}}
-				<!-- {{#if currentUserInRole 'coordinator'}}
-				{{/if}}
-				{{#if currentUserInRole 'principal'}}
-				{{/if}} -->
 			</div>
 		</div>
 	{{else}}

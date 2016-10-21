@@ -9,6 +9,11 @@ Template.registerHelper('currentUserInRole', (role) => {
 	return Roles.userIsInRole(id, role);
 });
 
+Template.registerHelper('authorizedToEditProfile', () => {
+	let id = FlowRouter.getParam("id");
+	return Meteor.userId() === id || Roles.userIsInRole(Meteor.userId(), 'coordinator');
+});
+
 Template.registerHelper('instructorRole', () => {
 	return ["coordinator", "instructor"];
 });

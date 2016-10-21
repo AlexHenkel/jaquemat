@@ -4,7 +4,9 @@
 			<div class="card-content">
 				<span class="card-title">
 					{{prettyStatus editUser.extendedProfile.type}}
-					<a href="/usuario/editar/{{editUser._id}}"><i class="material-icons right edit">edit</i></a>
+					{{#if authorizedToEditProfile}}
+						<a href="/usuario/editar/{{editUser._id}}"><i class="material-icons right edit">edit</i></a>
+					{{/if}}
 				</span>
 				
 				<div class="row">
