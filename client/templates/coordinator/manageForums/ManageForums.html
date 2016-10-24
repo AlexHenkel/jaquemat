@@ -3,7 +3,25 @@
         <h2 class="title">Foros actuales</h2>
         <div class="row m-t-15">
             {{#if Template.subscriptionsReady}}
-                {{#each periods}}
+                {{#each currentPeriods}}
+                    <div class="col s12 m12 l6">
+                        <ul class="collection with-header">
+                            <li class="collection-header"><h4 class="title collection-title">{{name}}</h4></li>
+                            {{#each forumsInPeriod _id}}
+                                {{> ManageForum}}
+                            {{else}}
+                                <li class="collection-item">Aun no hay foros :(</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{else}}
+                    <div class="col s12">
+                        <p class="center">Aun no hay foros :(</p>
+                    </div>
+                {{/each}}
+                <div class="clearfix"></div>
+                <h4 class="title">Futuros</h4>
+                {{#each futurePeriods}}
                     <div class="col s12 m12 l6">
                         <ul class="collection with-header">
                             <li class="collection-header"><h4 class="title collection-title">{{name}}</h4></li>

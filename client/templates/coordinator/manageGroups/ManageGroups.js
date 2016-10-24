@@ -9,11 +9,5 @@ Template.ManageGroups.onCreated(function () {
 Template.ManageGroups.helpers({
 	groupsInPeriod: (id) => {
 		return Groups.find({period: id});
-	},
-	currentPeriods: () => {
-		return Periods.find({status: 'current'}, {sort: {start_date: -1}}); // Get periods
-	},
-	futurePeriods: () => {
-		return Periods.find({status: 'pending'}, {sort: {start_date: -1}}); // Get periods
 	}
 });

@@ -68,6 +68,14 @@ Template.registerHelper('groupName', (id) => {
 	}
 });
 
+Template.registerHelper('currentPeriods', (id) => {
+	return Periods.find({status: 'current'}, {sort: {start_date: -1}}); // Get current periods
+});
+
+Template.registerHelper('futurePeriods', (id) => {
+	return Periods.find({status: 'pending'}, {sort: {start_date: -1}}); // Get pending periods
+});
+
 //////////////////////////////////
 ///  STATICS
 //////////////////////////////////
