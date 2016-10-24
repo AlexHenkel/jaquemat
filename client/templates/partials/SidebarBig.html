@@ -1,17 +1,19 @@
 <template name="SidebarBig">
-	<ul class="side-nav big">
-		<li>
-			{{>UserView}}
-		</li>
-		{{>PersonalData}}
-		{{#if isInRole 'coordinator'}}
-			{{> CoordinatorLinks}}
-		{{/if}}
-		{{#if isInRole 'instructor'}}
-			{{> InstructorPrincipalLinks}}
-		{{/if}}
-		{{#if isInRole 'principal'}}
-			{{> InstructorPrincipalLinks}}
-		{{/if}}
-	</ul>
+	{{#if currentUser}}
+		<ul class="side-nav big">
+			<li>
+				{{>UserView}}
+			</li>
+			{{>PersonalData}}
+			{{#if isInRole 'coordinator'}}
+				{{> CoordinatorLinks}}
+			{{/if}}
+			{{#if isInRole 'instructor'}}
+				{{> InstructorPrincipalLinks}}
+			{{/if}}
+			{{#if isInRole 'principal'}}
+				{{> InstructorPrincipalLinks}}
+			{{/if}}
+		</ul>
+	{{/if}}
 </template>

@@ -1,9 +1,9 @@
 <template name="Login">
     {{#if currentUser}}
-        {{currentUser.profile.name}} -
-        <button id="logout">Logout</button>
     {{else}}
-        <button id="facebook-login" class="btn btn-default"> Login with Facebook</button>
-        {{>atForm}}
+        <h1 class="title center">Bienvenido a JaqueMat</h1>
+    	<p class="center">Haz click en el botón para registrarte o ingresar al sistema.</p>
+        <div class="center"><button id="facebook-login" class="btn btn-default btn-login"> <i class="fa fa-facebook m-r-20"></i>Ingresa con Facebook</button></div>
+        <!-- {{>atForm}} -->    	
     {{/if}}
 </template>
