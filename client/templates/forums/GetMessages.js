@@ -23,7 +23,8 @@ Template.GetMessages.helpers({
 });
 
 Template.GetMessages.events({
-	'click .delete': function() {
+	'click .delete': function(event) {
+		event.preventDefault();
 		Meteor.call('deleteMessage', this._id);
 	}
 })
