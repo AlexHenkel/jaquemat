@@ -142,7 +142,7 @@ Meteor.publish('currentForumsOfUser', function(id) {
         Groups.find({period: {$in: periods}, students: id}).map(function (group) {
             groups.push(group._id);
         });
-    } else if (Roles.userIsInRole(id, 'student')) {
+    } else if (Roles.userIsInRole(id, 'instructor')) {
         Groups.find({period: {$in: periods}, instructors: id}).map(function (group) {
             groups.push(group._id);
         });
