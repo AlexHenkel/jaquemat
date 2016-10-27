@@ -2,7 +2,7 @@ Template.NotRegistered.onCreated(function () {
 	var self = this;
 	self.autorun(function() {
 		self.subscribe('schools'); // Subscribes to schools
-		self.subscribe('periods'); // Subscribes to schools
+		self.subscribe('currentPeriods'); // Subscribes to schools
 		self.subscribe('selfUser'); // Subscribe to self info
 	});
 	this.userType = new ReactiveVar("student");

@@ -12,10 +12,7 @@ Template.Home.helpers({
 	coordinatorHome: () => {
 		FlowRouter.go('groups');
 	},
-	instructorHome: () => {
-		FlowRouter.go('/usuario/:id', {id: Meteor.userId()});
-	},
-	studentHome: () => {
+	userHome: () => {
 		FlowRouter.go('/usuario/:id', {id: Meteor.userId()});
 	}
 });

@@ -3,11 +3,8 @@
 		{{#if isInRole 'coordinator'}}
 			{{ coordinatorHome }}
 		{{/if}}
-		{{#if isInRole 'instructor'}}
-			{{ instructorHome }}
-		{{/if}}
-		{{#if isInRole 'student'}}
-			{{ studentHome }}
+		{{#if isInRole notCoordinatorRoles }}
+			{{ userHome }}
 		{{/if}}
 		{{#if hasProfile}}
 			{{>SuccessRegister}}

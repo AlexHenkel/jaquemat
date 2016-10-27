@@ -4,6 +4,18 @@ Template.registerHelper('isInRole', (role) => {
 	return Roles.userIsInRole(Meteor.userId(), role);
 });
 
+Template.registerHelper('instructorRole', () => {
+	return ["coordinator", "instructor"];
+});
+
+Template.registerHelper('studentRole', () => {
+	return ["coordinator", "student"];
+});
+
+Template.registerHelper('notCoordinatorRoles', () => {
+	return ["instructor", "student", "principal"];
+});
+
 Template.registerHelper('currentUserInRole', (role) => {
 	let id = FlowRouter.getParam("id");
 	return Roles.userIsInRole(id, role);
@@ -13,15 +25,6 @@ Template.registerHelper('authorizedToEditProfile', () => {
 	let id = FlowRouter.getParam("id");
 	return Meteor.userId() === id || Roles.userIsInRole(Meteor.userId(), 'coordinator');
 });
-
-Template.registerHelper('instructorRole', () => {
-	return ["coordinator", "instructor"];
-});
-
-Template.registerHelper('studentRole', () => {
-	return ["coordinator", "student"];
-});
-
 
 Template.registerHelper('instructorStudentRole', () => {
 	return ["coordinator", "instructor", "student"];
