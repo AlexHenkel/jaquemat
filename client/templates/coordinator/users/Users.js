@@ -8,7 +8,7 @@ Template.Users.onCreated(function () {
 Template.Users.helpers({
 	isActive: function(){
 		let user = Meteor.users.findOne({_id: this._id});
-		return Roles.userIsInRole(user._id, ['instructor', 'coordinator', 'student']);
+		return Roles.userIsInRole(user._id, ['instructor', 'coordinator', 'student', 'principal']);
 	},
 	hasProfile: function() {
 		let user = Meteor.users.findOne({_id: this._id});
