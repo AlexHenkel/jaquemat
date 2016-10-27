@@ -3,7 +3,7 @@ Template.EditProfile.onCreated(function () {
 	self.autorun(function() {
 		let id = FlowRouter.getParam("id");
 		self.subscribe('user', id); // Subscribe to current user
-		self.subscribe('periods'); // Subscribe to current user
+		self.subscribe('currentPeriods'); // Subscribe to current user
 	});
 });
 

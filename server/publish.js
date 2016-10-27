@@ -70,6 +70,9 @@ Meteor.publish('currentGroupsOfUser', function(id) {
     else if (Roles.userIsInRole(id, 'instructor')) {
         return Groups.find({period: {$in: periods}, instructors: id});
     }
+    else {
+        return [];
+    }
 });
 
 Meteor.publish('currentGradesOfUser', function(id) {
