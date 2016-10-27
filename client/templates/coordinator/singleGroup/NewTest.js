@@ -24,5 +24,8 @@ Template.NewTest.events({
 			Meteor.call('insertTest', groupId, $("#name").val(), $("#short_name").val());
 			Session.set('newTest', 0);
 		}
+	},
+	'click .close': function() {
+		Session.set('newTest', 0);
 	}
 });
