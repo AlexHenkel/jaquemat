@@ -33,11 +33,12 @@
 	width: 100%;
 }
 .hero{
+	padding-top: 13%;
 	h1{
 		text-align: center;
 		color: #fff;
-		margin-top: 40%;
 	}
 	background: $title-color;
 	min-height: 500px;
+	margin-bottom: 40px;
 }
