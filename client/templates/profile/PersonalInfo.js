@@ -27,7 +27,8 @@ Template.PersonalInfo.helpers({
 			major: "Carrera",
 			area: "Área deseada",
 			semester: "Semestre",
-			period: "Periodo Inscrito"
+			period: "Periodo Inscrito",
+			siass: "Clave SIASS"
 		}
 
 		return properties[value];

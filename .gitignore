@@ -1,5 +1,6 @@
 node_modules/
 .idea/
+server/settings.js
 
 # OS generated files #
 ######################
