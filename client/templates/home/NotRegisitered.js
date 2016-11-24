@@ -17,8 +17,8 @@ Template.NotRegistered.helpers({
 	},
 	optionsPeriod: function () {
 		return Periods.find().map(function(period) {
-                return {label: period.name, value: period._id};
-            });
+			return {label: period.name, value: period._id};
+		});
 	}
 });
 
@@ -34,7 +34,7 @@ Template.NotRegistered.events({
 		$(".error-message").html("");
 
 		// Verify missing fields
-		let missing = false;
+		var missing = false;
 		$("input:not(.js-universeSelectizeInput)").each(function() {
 			if ($(this).val() === "") {
 				$(this).addClass('invalid');

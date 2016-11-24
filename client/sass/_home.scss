@@ -1,0 +1,43 @@
+.home-layout {
+	p, h2, h3{
+		color: #777;
+	}
+	h3{
+		font-size: 1.72rem;
+	}
+}
+.contact-form{
+	width: 60%;
+	margin: 0 auto;
+	margin-bottom: 8%;
+	textarea{
+		resize: none;
+		border: 1px solid #ccc;
+		height: 250px;
+		padding: 10px;
+	}
+	.submit{
+		background: $title-color;
+		color: #fff;
+		width: 100%;
+		height: 50px;
+		font-size: 1.8em;
+		border: 0 none;
+		margin-top: 40px;
+	}
+}
+.row{
+	width: 100%;
+}
+.container.spec{
+	width: 100%;
+}
+.hero{
+	h1{
+		text-align: center;
+		color: #fff;
+		margin-top: 40%;
+	}
+	background: $title-color;
+	min-height: 500px;
+}

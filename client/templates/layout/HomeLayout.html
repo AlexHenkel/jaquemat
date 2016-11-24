@@ -1,0 +1,24 @@
+<template name="HomeLayout">
+	<main class="home-layout">
+		<div class="hero">
+			<h1>JaqueMat</h1>
+		</div>
+		<div class="container spec">
+			{{> Template.dynamic template=main}}
+		</div>
+		<div class="slicker">
+			<div><img src="http://lorempixel.com/1260/400" alt=""></div>
+		</div>
+		<div class="container">
+			<form class="contact-form" action="#">
+				<h2 class="tac">Cont&aacute;ctanos</h2>
+				<input type="text" name="name" id="name" placeholder="Tu nombre">
+				<input type="email" name="email" id="email" placeholder="Tu correo">
+				<textarea name="msg" id="msg" placeholder="Tu mensaje"></textarea>
+				<input type="submit" value="Enviar" class="submit">
+			</form>
+		</div>
+	</main>
+
+	{{> Footer}}
+</template>
